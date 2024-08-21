@@ -66,7 +66,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
 
     let logs = '';
     let newlogs = '';
-    let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName, "--race"];
+    let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName, "--race","-l"];
 
     if (!randoMusic && catagory !== "boss-rush"){
         args.push("--opt","~m")

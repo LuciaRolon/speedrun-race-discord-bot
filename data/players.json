@@ -5,7 +5,19 @@
   },
   {
     "username": "dr4gonblitz",
-    "id": "114785502850187270"
+    "id": "114785502850187270",
+    "beyond": {
+      "elo": 1120,
+      "matches": 2
+    },
+    "magic-mirror": {
+      "elo": 1225,
+      "matches": 4
+    },
+    "Custom": {
+      "elo": 1135,
+      "matches": 2
+    }
   },
   {
     "username": "Stew",
@@ -27,19 +39,35 @@
     "bat-master": {
       "elo": 895,
       "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 740,
+      "matches": 1
     }
   },
   {
     "username": "asdheyb",
-    "id": "361628571610906624"
+    "id": "361628571610906624",
+    "bountyhunter": {
+      "elo": 1195,
+      "matches": 2
+    },
+    "crash-course": {
+      "elo": 1115,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1120,
+      "matches": 2
+    }
   },
   {
     "username": ".dinnerdog",
     "id": "724749246431101089",
     "twitch": "dinnerdog",
     "bountyhunter": {
-      "elo": 1540,
-      "matches": 42
+      "elo": 1525,
+      "matches": 44
     },
     "safe": {
       "elo": 1085,
@@ -94,20 +122,20 @@
     "id": "104994192576544768",
     "twitch": "eldri7ch",
     "bountyhunter": {
-      "elo": 920,
-      "matches": 24
+      "elo": 815,
+      "matches": 29
     },
     "Custom": {
-      "elo": 975,
-      "matches": 3
+      "elo": 885,
+      "matches": 24
     },
     "leg-day": {
       "elo": 1095,
       "matches": 1
     },
     "big-toss": {
-      "elo": 985,
-      "matches": 3
+      "elo": 950,
+      "matches": 4
     },
     "chaos-lite": {
       "elo": 970,
@@ -122,8 +150,24 @@
       "matches": 1
     },
     "magic-mirror": {
-      "elo": 990,
-      "matches": 2
+      "elo": 735,
+      "matches": 5
+    },
+    "beyond": {
+      "elo": 1015,
+      "matches": 3
+    },
+    "crash-course": {
+      "elo": 1075,
+      "matches": 3
+    },
+    "lycanthrope": {
+      "elo": 860,
+      "matches": 1
+    },
+    "warlock": {
+      "elo": 950,
+      "matches": 1
     }
   },
   {
@@ -170,8 +214,8 @@
     "id": "255827780388913153",
     "twitch": "skr1mps",
     "bountyhunter": {
-      "elo": 1305,
-      "matches": 14
+      "elo": 1335,
+      "matches": 19
     },
     "lycanthrope": {
       "elo": 1350,
@@ -186,8 +230,16 @@
       "matches": 1
     },
     "magic-mirror": {
-      "elo": 1210,
-      "matches": 1
+      "elo": 1425,
+      "matches": 16
+    },
+    "Custom": {
+      "elo": 1095,
+      "matches": 11
+    },
+    "beyond": {
+      "elo": 990,
+      "matches": 2
     }
   },
   {
@@ -295,8 +347,8 @@
     "id": "83901311518507008",
     "twitch": "jammerlamm",
     "bountyhunter": {
-      "elo": 905,
-      "matches": 23
+      "elo": 820,
+      "matches": 25
     },
     "leg-day": {
       "elo": 1050,
@@ -352,8 +404,8 @@
     "twitch": "mrrazzio",
     "id": "504296925357670412",
     "bountyhunter": {
-      "elo": 1310,
-      "matches": 27
+      "elo": 1285,
+      "matches": 33
     }
   },
   {
@@ -365,8 +417,8 @@
     "id": "165950520190566400",
     "twitch": "the_swarm",
     "bountyhunter": {
-      "elo": 1450,
-      "matches": 113
+      "elo": 1225,
+      "matches": 133
     },
     "nimble": {
       "elo": 900,
@@ -374,6 +426,10 @@
     },
     "safe": {
       "elo": 1140,
+      "matches": 1
+    },
+    "warlock": {
+      "elo": 1050,
       "matches": 1
     }
   },
@@ -385,7 +441,15 @@
       "matches": 11
     },
     "Custom": {
-      "elo": 1095,
+      "elo": 1130,
+      "matches": 6
+    },
+    "beyond": {
+      "elo": 1135,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 1050,
       "matches": 1
     }
   },
@@ -416,14 +480,18 @@
     "warlock": {
       "elo": 935,
       "matches": 1
+    },
+    "Custom": {
+      "elo": 1035,
+      "matches": 1
     }
   },
   {
     "username": "matheusdegiovanni",
     "id": "950914588579344454",
     "bountyhunter": {
-      "elo": 1310,
-      "matches": 33
+      "elo": 1385,
+      "matches": 38
     },
     "chaos-lite": {
       "elo": 800,
@@ -434,21 +502,21 @@
     "username": "renantrl",
     "id": "622787063435231281",
     "bountyhunter": {
-      "elo": 1230,
-      "matches": 211
+      "elo": 1435,
+      "matches": 228
     },
     "twitch": "renantrl1",
     "lycanthrope": {
-      "elo": 1245,
-      "matches": 6
+      "elo": 1265,
+      "matches": 10
     },
     "warlock": {
       "elo": 755,
       "matches": 3
     },
     "beyond": {
-      "elo": 950,
-      "matches": 1
+      "elo": 1405,
+      "matches": 5
     },
     "leg-day": {
       "elo": 960,
@@ -467,12 +535,12 @@
       "matches": 4
     },
     "Custom": {
-      "elo": 885,
-      "matches": 5
+      "elo": 1140,
+      "matches": 99
     },
     "aperture": {
-      "elo": 980,
-      "matches": 3
+      "elo": 1070,
+      "matches": 4
     },
     "bat-master": {
       "elo": 895,
@@ -483,11 +551,19 @@
       "matches": 1
     },
     "magic-mirror": {
-      "elo": 1140,
-      "matches": 9
+      "elo": 1485,
+      "matches": 32
     },
     "big-toss": {
-      "elo": 1155,
+      "elo": 1140,
+      "matches": 2
+    },
+    "crash-course": {
+      "elo": 900,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 850,
       "matches": 1
     }
   },
@@ -501,7 +577,11 @@
   },
   {
     "username": "darkfalzjoker",
-    "id": "437635862855942154"
+    "id": "437635862855942154",
+    "Custom": {
+      "elo": 1045,
+      "matches": 4
+    }
   },
   {
     "username": "elpinchelack",
@@ -516,12 +596,12 @@
     "id": "141362746389168128",
     "twitch": "crazy4bladestv",
     "bountyhunter": {
-      "elo": 945,
-      "matches": 150
+      "elo": 1095,
+      "matches": 154
     },
     "Custom": {
-      "elo": 935,
-      "matches": 6
+      "elo": 1395,
+      "matches": 106
     },
     "leg-day": {
       "elo": 955,
@@ -532,32 +612,32 @@
       "matches": 9
     },
     "lycanthrope": {
-      "elo": 840,
-      "matches": 11
+      "elo": 990,
+      "matches": 15
     },
     "warlock": {
-      "elo": 990,
-      "matches": 2
+      "elo": 1145,
+      "matches": 3
     },
     "beyond": {
-      "elo": 1100,
-      "matches": 1
+      "elo": 940,
+      "matches": 5
     },
     "safe": {
       "elo": 910,
       "matches": 7
     },
     "big-toss": {
-      "elo": 745,
-      "matches": 3
+      "elo": 880,
+      "matches": 4
     },
     "chaos-lite": {
       "elo": 1210,
       "matches": 4
     },
     "aperture": {
-      "elo": 1160,
-      "matches": 6
+      "elo": 1170,
+      "matches": 7
     },
     "bat-master": {
       "elo": 860,
@@ -580,8 +660,16 @@
       "matches": 1
     },
     "magic-mirror": {
-      "elo": 1210,
-      "matches": 10
+      "elo": 1270,
+      "matches": 34
+    },
+    "crash-course": {
+      "elo": 1090,
+      "matches": 2
+    },
+    "boss-rush": {
+      "elo": 1135,
+      "matches": 3
     }
   },
   {
@@ -609,6 +697,14 @@
     "bountyhunter": {
       "elo": 725,
       "matches": 11
+    },
+    "magic-mirror": {
+      "elo": 850,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 690,
+      "matches": 3
     }
   },
   {
@@ -638,8 +734,8 @@
     "id": "124298268187426816",
     "username": "derdrach",
     "bountyhunter": {
-      "elo": 1415,
-      "matches": 43
+      "elo": 1265,
+      "matches": 46
     },
     "leg-day": {
       "elo": 1490,
@@ -650,8 +746,8 @@
       "matches": 3
     },
     "lycanthrope": {
-      "elo": 1140,
-      "matches": 6
+      "elo": 1290,
+      "matches": 7
     },
     "warlock": {
       "elo": 1380,
@@ -666,8 +762,8 @@
       "matches": 1
     },
     "Custom": {
-      "elo": 1240,
-      "matches": 3
+      "elo": 1380,
+      "matches": 33
     },
     "expedition": {
       "elo": 1000,
@@ -678,16 +774,24 @@
       "matches": 1
     },
     "magic-mirror": {
-      "elo": 1185,
-      "matches": 4
+      "elo": 1295,
+      "matches": 7
     },
     "big-toss": {
-      "elo": 905,
-      "matches": 1
+      "elo": 1175,
+      "matches": 2
     },
     "aperture": {
       "elo": 1070,
       "matches": 1
+    },
+    "beyond": {
+      "elo": 1015,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 1150,
+      "matches": 3
     }
   },
   {
@@ -699,8 +803,8 @@
     "username": "majorseamen",
     "twitch": "majorsemen",
     "bountyhunter": {
-      "elo": 440,
-      "matches": 35
+      "elo": 425,
+      "matches": 36
     },
     "leg-day": {
       "elo": 610,
@@ -731,11 +835,23 @@
       "matches": 2
     },
     "Custom": {
-      "elo": 960,
-      "matches": 1
+      "elo": 705,
+      "matches": 12
     },
     "magic-mirror": {
-      "elo": 850,
+      "elo": 1065,
+      "matches": 2
+    },
+    "crash-course": {
+      "elo": 825,
+      "matches": 2
+    },
+    "beyond": {
+      "elo": 745,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 950,
       "matches": 1
     }
   },
@@ -760,8 +876,8 @@
     "id": "134826386010537984",
     "username": "_alexp_",
     "bountyhunter": {
-      "elo": 785,
-      "matches": 41
+      "elo": 735,
+      "matches": 43
     },
     "twitch": "alexpi_fgc",
     "lycanthrope": {
@@ -781,8 +897,8 @@
       "matches": 1
     },
     "aperture": {
-      "elo": 1000,
-      "matches": 1
+      "elo": 950,
+      "matches": 2
     },
     "guarded-og": {
       "elo": 950,
@@ -791,6 +907,14 @@
     "nimble": {
       "elo": 925,
       "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 740,
+      "matches": 4
+    },
+    "Custom": {
+      "elo": 675,
+      "matches": 5
     }
   },
   {
@@ -800,8 +924,8 @@
     "id": "365012650632937472",
     "username": "mottzilla0",
     "bountyhunter": {
-      "elo": 1170,
-      "matches": 28
+      "elo": 1165,
+      "matches": 31
     },
     "leg-day": {
       "elo": 1450,
@@ -812,8 +936,8 @@
       "matches": 1
     },
     "Custom": {
-      "elo": 1075,
-      "matches": 2
+      "elo": 1425,
+      "matches": 27
     },
     "bat-master": {
       "elo": 1270,
@@ -824,12 +948,24 @@
       "matches": 1
     },
     "big-toss": {
-      "elo": 975,
-      "matches": 1
+      "elo": 770,
+      "matches": 2
     },
     "magic-mirror": {
-      "elo": 1120,
+      "elo": 1045,
+      "matches": 8
+    },
+    "lycanthrope": {
+      "elo": 1040,
       "matches": 2
+    },
+    "beyond": {
+      "elo": 650,
+      "matches": 2
+    },
+    "boss-rush": {
+      "elo": 950,
+      "matches": 1
     }
   },
   {
@@ -843,13 +979,13 @@
     "id": "337284886039625728",
     "username": "sugden_",
     "bountyhunter": {
-      "elo": 1415,
-      "matches": 68
+      "elo": 1490,
+      "matches": 88
     },
     "twitch": "sugdenunderscore",
     "Custom": {
-      "elo": 1260,
-      "matches": 4
+      "elo": 1365,
+      "matches": 23
     },
     "leg-day": {
       "elo": 910,
@@ -860,12 +996,12 @@
       "matches": 3
     },
     "warlock": {
-      "elo": 1050,
-      "matches": 1
+      "elo": 895,
+      "matches": 2
     },
     "beyond": {
-      "elo": 950,
-      "matches": 1
+      "elo": 1160,
+      "matches": 2
     },
     "lycanthrope": {
       "elo": 705,
@@ -897,7 +1033,11 @@
     },
     "magic-mirror": {
       "elo": 530,
-      "matches": 3
+      "matches": 7
+    },
+    "crash-course": {
+      "elo": 1195,
+      "matches": 1
     }
   },
   {
@@ -909,8 +1049,8 @@
     },
     "username": "elazul",
     "lycanthrope": {
-      "elo": 910,
-      "matches": 3
+      "elo": 855,
+      "matches": 4
     },
     "warlock": {
       "elo": 895,
@@ -941,8 +1081,20 @@
       "matches": 1
     },
     "magic-mirror": {
-      "elo": 845,
+      "elo": 665,
+      "matches": 8
+    },
+    "beyond": {
+      "elo": 765,
       "matches": 2
+    },
+    "Custom": {
+      "elo": 870,
+      "matches": 3
+    },
+    "crash-course": {
+      "elo": 900,
+      "matches": 1
     }
   },
   {
@@ -958,25 +1110,37 @@
     "id": "384451080668446720",
     "twitch": "X_CrimsonBattousai_X",
     "bountyhunter": {
-      "elo": 915,
-      "matches": 52
+      "elo": 1050,
+      "matches": 61
     },
     "username": "crimsonbattousai",
     "magic-mirror": {
-      "elo": 855,
-      "matches": 1
+      "elo": 780,
+      "matches": 18
+    },
+    "Custom": {
+      "elo": 1205,
+      "matches": 17
     }
   },
   {
     "id": "127868041227796480",
     "bountyhunter": {
-      "elo": 720,
-      "matches": 4
+      "elo": 655,
+      "matches": 8
     },
     "username": "sacredlucy",
     "leg-day": {
       "elo": 1050,
       "matches": 1
+    },
+    "crash-course": {
+      "elo": 900,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 775,
+      "matches": 7
     }
   },
   {
@@ -1043,8 +1207,12 @@
       "matches": 1
     },
     "magic-mirror": {
-      "elo": 1025,
-      "matches": 2
+      "elo": 1170,
+      "matches": 5
+    },
+    "beyond": {
+      "elo": 950,
+      "matches": 1
     }
   },
   {
@@ -1053,8 +1221,8 @@
   {
     "id": "262977697175699457",
     "Custom": {
-      "elo": 1010,
-      "matches": 1
+      "elo": 965,
+      "matches": 4
     },
     "username": "xopazaru0343",
     "bountyhunter": {
@@ -1062,19 +1230,35 @@
       "matches": 23
     },
     "aperture": {
-      "elo": 860,
-      "matches": 1
+      "elo": 740,
+      "matches": 2
     },
-    "twitch": "xopa0343"
+    "twitch": "xopa0343",
+    "boss-rush": {
+      "elo": 960,
+      "matches": 1
+    }
   },
   {
     "id": "249321953150763009",
     "twitch": "KlammL",
     "bountyhunter": {
-      "elo": 595,
-      "matches": 2
+      "elo": 665,
+      "matches": 3
     },
-    "username": "klamm"
+    "username": "klamm",
+    "Custom": {
+      "elo": 500,
+      "matches": 9
+    },
+    "big-toss": {
+      "elo": 790,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 955,
+      "matches": 1
+    }
   },
   {
     "id": "193080405493153794",
@@ -1083,13 +1267,13 @@
   {
     "id": "620932887386259467",
     "bountyhunter": {
-      "elo": 925,
-      "matches": 3
+      "elo": 845,
+      "matches": 5
     },
     "username": "cristoelmago",
     "Custom": {
-      "elo": 850,
-      "matches": 1
+      "elo": 720,
+      "matches": 7
     }
   },
   {
@@ -1102,6 +1286,43 @@
     "aperture": {
       "elo": 860,
       "matches": 1
+    },
+    "lycanthrope": {
+      "elo": 860,
+      "matches": 1
     }
+  },
+  {
+    "id": "267164187803910156",
+    "lycanthrope": {
+      "elo": 995,
+      "matches": 2
+    },
+    "username": "lexiticus",
+    "Custom": {
+      "elo": 650,
+      "matches": 18
+    }
+  },
+  {
+    "id": "955283241630306326",
+    "magic-mirror": {
+      "elo": 865,
+      "matches": 1
+    },
+    "username": "kissarmy78",
+    "lycanthrope": {
+      "elo": 810,
+      "matches": 1
+    }
+  },
+  {
+    "id": "489872078976057344",
+    "twitch": "toiletpain_",
+    "Custom": {
+      "elo": 935,
+      "matches": 1
+    },
+    "username": "jjcdrummer"
   }
 ]

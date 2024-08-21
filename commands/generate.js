@@ -1,93 +1,21 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const config = require('../config.json');
-const generatePPF = require('../common/generatePPF.js');
-const seed = require('../common/seed.js');
-const data = require('../data/data.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('generate')
-        .setDescription(`Generate a seed with the selected options.`)
-        .addStringOption(option =>
-            option.setName('category')
-                .setDescription('Category of the race')
-                .setRequired(true)
-                .addChoices(
-                    {
-                        name: 'expedition',
-                        value: 'expedition',
-                    },
-                    {
-                        name: 'boss-rush',
-                        value: 'boss-rush',
-                    },
-                    {
-                        name: 'bounty-hunter',
-                        value: 'bountyhunter',
-                    },
-                    {
-                        name: 'summoner',
-                        value: 'summoner',
-                    },
-                    {
-                        name: 'aperture',
-                        value: 'aperture',
-                    },
-                    {
-                        name: 'breach',
-                        value: 'breach',
-                    },
-                    {
-                        name: 'forge',
-                        value: 'forge',
-                    },
-                    {
-                        name: 'big-toss',
-                        value: 'big-toss',
-                    },
-                    {
-                        name: 'grand-tour',
-                        value: 'grand-tour',
-                    },
-                    {
-                        name: 'crash-course',
-                        value: 'crash-course',
-                    },
-                    {
-                        name: 'leg-day',
-                        value: 'leg-day',
-                    },
-                    {
-                        name: 'beyond',
-                        value: 'beyond',
-                    },
-                    {
-                        name: 'chaos-lite',
-                        value: 'chaos-lite',
-                    },
-                    {
-                        name: 'magic-mirror',
-                        value: 'magic-mirror',
-                    },
-                ))
-        .addBooleanOption(option =>
-            option.setName('tournament')
-                .setDescription('Tournament races have more restrictions for non-referees.')
-                .setRequired(true))
-        .addBooleanOption(option =>
-            option.setName('public')
-                .setDescription('Determines whether resulting seed will be private or public.')
-                .setRequired(false))
-        .addBooleanOption(option =>
-            option.setName('vanilla-music')
-                .setDescription('Determines whether resulting seed will have randomized OST.')
-                .setRequired(false)),
-    async execute(interaction, client, race) {
-        let catagory = interaction.options.getString('category');
-        let ppfSeed = seed(catagory);
-        let raceChannel = client.guilds.cache.first(1)[0].channels;
-        console.log('Seed Generated For: ' + interaction.user.username)
-        generatePPF(ppfSeed, ppfSeed.name,raceChannel,catagory.toLowerCase(),interaction.options.getBoolean('tournament'), interaction,!interaction.options.getBoolean('vanilla-music'),false);
-        await interaction.deferReply({ ephemeral: !interaction.options.getBoolean('public') });
+        .setDescription(`Deprecated; Used to be used to generate presets not available on the main site.`),
+    async execute(interaction, client) {
+        let output = ''
+
+        output += 'Thanks for trying to generate from me, TinMan!';
+        output += '\n ';
+        output += '\nThe generation capabilities of TinMan have been removed because https://sotnrando.net has become publicly accessible with all of the presets you love with more options!';
+        output += '\nIf If you were trying to generate Bounty Hunter, there is a new tool you will need for generation. You can find generate the preset on https://sotnrando.net and then using the tool from MottZilla\'s releases: the new tool here: https://github.com/MottZilla/BountyHunterTool/releases';
+        output += '\n ';
+        output += '\nWe hope you enjoy all of the fantastic new presets and thanks for your patience while we got the new website up.';
+        output += '\n ';
+        output += '\nHope this helps, call me if you need me!';
+
+        await interaction.reply({ content: output, ephemeral: true });
     },
 };
