@@ -3,6 +3,8 @@
     "raceVoiceChannelId": "407763206564741120",
     "pagerRoleId": "632571703398105098",
     "refereeRoleId": "876383410212462602",
+    "GuildId": "407759960588419073",
+    "ClientId": "1126148161602330835",
     "maxOffsetSeconds": "15",
     "timeoutMinutes": "45",
     "minimumNewIntervalMinutes": "1",
@@ -10,32 +12,68 @@
     "defaultOffset": "10400",
     "rematchTimeoutSeconds": "8000",
     "generatePPF": true,
-    "randoPath": "D:/Programming/SotN-Randomizer/",
-    "patchFolder": "D:/Programming/speedrun-race-discord-bot/patches/",
-    "countdownFiles": ["../audio/countdown1.mp3", "../audio/countdown2.mp3", "../audio/countdown3.mp3", "../audio/countdown4.mp3"],
-    "leaderboardmessages": [{
-        "name": "Randomizer Casual",
-        "id": "876325364333420574"
-    }],
-    "offsets": [{
-            "name": "psx",
-            "value": 10.4
+    "sotnVanillaBinPath": "../BountyHunterTool/'Castlevania - Symphony of the Night (USA) (Track 1).bin'",
+    "randoPath": "D:/SotN-Randomizer-master/",
+    "patchFolder": "D:/GithubDesktop/Repositories/speedrun-race-discord-bot/patches/",
+    "replaysFolder": "D:/GithubDesktop/Repositories/speedrun-race-discord-bot/replays/",
+    "ppfApplierPath": "../'ApplyPPF'/'Apply PPF'/apply_ppf.exe",
+    "bhGeneratorToolPath": "../BountyHunterTool/BountyHunter.exe",
+    "countdownFiles": [
+        "../audio/countdown1.mp3",
+        "../audio/countdown2.mp3",
+        "../audio/countdown3.mp3",
+        "../audio/countdown4.mp3"
+    ],
+    "categories": [
+        {
+            "name": "Guarded OG",
+            "value": "Guarded-OG"
         },
         {
-            "name": "xb",
-            "value": 3
+            "name": "Safe",
+            "value": "Safe"
         },
         {
-            "name": "saturn",
-            "value": 27
+            "name": "Casual",
+            "value": "Casual"
         },
         {
-            "name": "emusaturn",
-            "value": 23
+            "name": "Nimble",
+            "value": "Nimble"
         },
         {
-            "name": "dxc",
-            "value": 4.5
+            "name": "Lycanthrope",
+            "value": "Lycanthrope"
+        },
+        {
+            "name": "Expedition",
+            "value": "Expedition"
+        },
+        {
+            "name": "Warlock",
+            "value": "Warlock"
+        },
+        {
+            "name": "Adventure",
+            "value": "Adventure"
+        },
+        {
+            "name": "OG",
+            "value": "OG"
+        },
+        {
+            "name": "Speedrun",
+            "value": "Speedrun"
+        },
+        {
+            "name": "Bat master",
+            "value": "Bat-master"
+        },
+        {
+            "name": "Custom",
+            "value": "Custom"
         }
+    ],
+    "leaderboardmessages": [
     ]
 }

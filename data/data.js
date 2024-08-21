@@ -1,5 +1,6 @@
 const playersDb = require('../data/players.json');
 const eloConfig = require('../elo/eloConfig.json');
+const config = require('../config.json');
 const path = require('path');
 const fs = require('fs');
 
@@ -9,7 +10,7 @@ const placementMatches = (eloConfig.placementMatches);
 let players = [];
 
 function savePlayer(player) {
-    let playerIndex = players.findIndex(x => x.username == player.username);
+    let playerIndex = players.findIndex(x => x.id == player.id);
     if (playerIndex > -1) {
         players[playerIndex] = player;
     } else {
@@ -19,26 +20,42 @@ function savePlayer(player) {
     players = playersDb;
 }
 
-function getPlayerIndexByName(username) {
+function getPlayerIndexById(id) {
     if (players.length < 1) {
         players = playersDb;
     }
-    if (username.length < 3) {
-        console.log("Username" + username + " is shorter than 4 characters!");
+    if (id < 1) {
+        console.log("Invalid id");
         return null;
     }
-    let player = players.find(x => x.username == username);
+    let player = players.find(x => x.id == id);
     if (player) {
-        return players.findIndex(x => x.username == username);
+        return players.findIndex(x => x.id == id);
     } else {
-        savePlayer({ username: username });
+        savePlayer({ id: id });
     }
-    return players.findIndex(x => x.username == username);
+    return players.findIndex(x => x.id == id);
 }
 
 module.exports = {
-    checkPlayerRanked: function(username, category) {
-        let playerIndex = getPlayerIndexByName(username);
+    getPlayerIndexById(id) {
+        if (players.length < 1) {
+            players = playersDb;
+        }
+        if (id < 1) {
+            console.log("Invalid id");
+            return null;
+        }
+        let player = players.find(x => x.id == id);
+        if (player) {
+            return players.findIndex(x => x.id == id);
+        } else {
+            savePlayer({ id: id });
+        }
+        return players.findIndex(x => x.id == id);
+    },
+    checkPlayerRanked: function(id, category) {
+        let playerIndex = getPlayerIndexById(id);
         if (!players[playerIndex][category]) {
             players[playerIndex][category] = {};
             players[playerIndex][category].matches = 0;
@@ -46,22 +63,26 @@ module.exports = {
         }
         return (players[playerIndex][category].matches >= placementMatches);
     },
-    getPlayerTwitch: function(username) {
-        let playerIndex = getPlayerIndexByName(username);
+    getPlayerTwitch: function(id) {
+        let playerIndex = getPlayerIndexById(id);
         return players[playerIndex].twitch;
     },
-    setPlayerTwitch: function(username, twitch) {
-        let playerIndex = getPlayerIndexByName(username);
+    setPlayerTwitch: function(id, twitch) {
+        let playerIndex = getPlayerIndexById(id);
         players[playerIndex].twitch = twitch;
         savePlayer(players[playerIndex]);
     },
-    setPlayerId: function(username, id) {
-        let playerIndex = getPlayerIndexByName(username);
-        players[playerIndex].id = id;
+    setPlayerUsername: function(id, username) {
+        let playerIndex = getPlayerIndexById(id);
+        players[playerIndex].username = username;
         savePlayer(players[playerIndex]);
     },
-    getPlayerElo: function(username, category) {
-        let playerIndex = getPlayerIndexByName(username);
+    getPlayerUsername: function(id) {
+        let playerIndex = getPlayerIndexById(id);
+        return players[playerIndex].username;
+    },
+    getPlayerElo: function(id, category) {
+        let playerIndex = getPlayerIndexById(id);
         if (!players[playerIndex][category]) {
             players[playerIndex][category] = {};
         }
@@ -74,14 +95,15 @@ module.exports = {
             return 1000;
         }
     },
-    adjustElo: function(player, category, adjustment) {
-        let playerIndex = getPlayerIndexByName(player);
+    adjustElo: function(id, category, adjustment) {
+        let playerIndex = getPlayerIndexById(id);
+        console.log(`Index: ${playerIndex}\nCatagory: ${category}`);
         if (players[playerIndex][category].elo) {
             players[playerIndex][category].elo += adjustment;
         } else {
             players[playerIndex][category].elo = defaultELO + adjustment;
         }
-        if (players[playerIndex][category].matches) {
+        if (players[playerIndex][category]?.matches) {
             players[playerIndex][category].matches += 1;
         } else {
             players[playerIndex][category].matches = 1;
@@ -89,7 +111,7 @@ module.exports = {
         savePlayer(players[playerIndex]);
     },
     adjustPb: function(player, category, time) {
-        let playerIndex = getPlayerIndexByName(player.username);
+        let playerIndex = getPlayerIndexById(player.id);
         if (playerIndex > -1) {
             players[playerIndex][category].pb = time;
         }
@@ -143,7 +165,7 @@ module.exports = {
             return null;
         }
         board.sort((a, b) => (a.elo > b.elo) ? -1 : 1);
-        stats.top = board.slice(0, 4);
+        stats.top = board.slice(0, 50);
         return stats;
     },
     getPlayerStats: function(player) {
@@ -152,17 +174,17 @@ module.exports = {
         if (players.length < 1) {
             players = playersDb;
         }
-        let playerIndex = players.findIndex(x => x.username == player);
+        let playerIndex = players.findIndex(x => x.id == player);
         if (playerIndex < 0) {
             return stats;
         }
         stats.twitch = 'https://www.twitch.tv/' + ((players[playerIndex].twitch) ? players[playerIndex].twitch : player);
         Object.keys(players[playerIndex]).forEach(key => {
-            if (key != "username" && key != "twitch" && key != "id") {
+            if (key != "id" && key != "twitch" && key != "username") {
                 let board = this.getCategoryLeaderboard(key);
                 let rank = 0;
                 if (board) {
-                    rank = board.findIndex(x => x.username == player) + 1;
+                    rank = board.findIndex(x => x.id == player) + 1;
                 }
                 if (rank < 1) {
                     rank = 'unranked';
@@ -176,5 +198,27 @@ module.exports = {
             }
         });
         return stats;
+    },
+    startNewSeason: function(seasonNumber) {
+        if (players.length < 1) {
+            players = playersDb;
+        }
+        fs.writeFileSync(path.join(__dirname, '../data/season-' + seasonNumber + '.json'), JSON.stringify(players, null, 2));
+        let newSeason = [];
+        players.forEach(player => {
+            let lastSeasonPlayer = {username: player.username, id: player.id, twitch: player.twitch};
+            config.categories.forEach(category => {
+                if (player[category].elo && player[category].elo < eloConfig.defaultElo - 100) {
+                    lastSeasonPlayer[category].elo = eloConfig.defaultEloLow;
+                } else if (player[category].elo && player[category].elo > eloConfig.defaultElo + 100) {
+                    lastSeasonPlayer[category].elo = eloConfig.defaultEloHigh;
+                } else {
+                    lastSeasonPlayer[category].elo = eloConfig.defaultElo;
+                }
+            });
+            newSeason.push(lastSeasonPlayer)
+        });
+
+        fs.writeFileSync(path.join(__dirname, playersDb), JSON.stringify(newSeason, null, 2));
     }
 };

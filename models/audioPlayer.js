@@ -5,16 +5,16 @@ const {
     createAudioPlayer,
     createAudioResource,
     entersState,
-    NoSubscriberBehavior,
     StreamType,
     AudioPlayerStatus,
-    VoiceConnectionStatus,
+    VoiceConnectionStatus
 } = require('@discordjs/voice');
 
 module.exports = class AudioPlayer {
     constructor(client) {
         this.voiceChannel = client.guilds.cache.first(1)[0].channels.fetch(config.raceVoiceChannelId);
         this.player = createAudioPlayer();
+        this.connected = false;
         this.connection = null;
         this.audioFiles = fs.readdirSync('./audio').filter(file => file.endsWith('.mp3'));
 
@@ -23,11 +23,15 @@ module.exports = class AudioPlayer {
         }
     }
 
-    play() {
+    async play() {
         let index = Math.floor(Math.random() * 3) + 1;
         const resource = createAudioResource(this.audioFiles[index], { inputType: StreamType.Arbitrary });
         this.player.play(resource);
-        return entersState(this.player, AudioPlayerStatus.Playing, 5e3);
+        try {
+            await entersState(this.player, AudioPlayerStatus.Playing, 5_000);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     async connectToChannel() {
@@ -43,32 +47,47 @@ module.exports = class AudioPlayer {
             await entersState(this.connection, VoiceConnectionStatus.Ready, 30e3);
             this.connection.subscribe(this.player);
 
-            this.connection.on(VoiceConnectionStatus.Disconnected, async(oldState, newState) => {
+            const networkStateChangeHandler = (oldNetworkState, newNetworkState) => {
+                const newUdp = Reflect.get(newNetworkState, 'udp');
+                clearInterval(newUdp?.keepAliveInterval);
+            }
+
+            this.connection.on('stateChange', (oldState, newState) => {
+                Reflect.get(oldState, 'networking')?.off('stateChange', networkStateChangeHandler);
+                Reflect.get(newState, 'networking')?.on('stateChange', networkStateChangeHandler);
+            });
+
+            this.connection.on(VoiceConnectionStatus.Disconnected, async () => {
                 try {
                     await Promise.race([
-                        entersState(connection, VoiceConnectionStatus.Signalling, 5000),
-                        entersState(connection, VoiceConnectionStatus.Connecting, 5000),
+                        entersState(this.connection, VoiceConnectionStatus.Signalling, 5000),
+                        entersState(this.connection, VoiceConnectionStatus.Connecting, 5000),
                     ]);
                 } catch (error) {
-                    connection.destroy();
-                    throw error;
+                    if (this.connection.state.status !== VoiceConnectionStatus.Destroyed) {
+                        this.connection.destroy();
+                    }
+                    console.log(error);
                 }
             });
 
+            this.connected = true;
             return this.connection;
         } catch (error) {
-            this.connection.destroy();
-            throw error;
+            if (this.connection.state.status !== VoiceConnectionStatus.Destroyed) {
+                this.connection.destroy();
+            }
+            console.log(error);
         }
     }
 
     disconnect() {
         try {
-            if (this.connection) {
+            if (this.connection.state.status !== VoiceConnectionStatus.Destroyed) {
                 this.connection.destroy();
             }
         } catch (error) {
-            throw error;
+            console.log(error);
         }
     }
 

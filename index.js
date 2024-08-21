@@ -1,10 +1,10 @@
 require('dotenv').config();
 const Race = require('./models/race');
 const AudioPlayer = require('./models/audioPlayer');
-const config = require('./config.json');
 const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
+const config = require('./config.json');
+const { Client, Events, Collection, GatewayIntentBits } = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildVoiceStates]});
 client.commands = new Collection();
 client.buttons = new Collection();
 const readline = require('readline');
@@ -39,17 +39,32 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 const cliFiles = fs.readdirSync('./cli').filter(file => file.endsWith('.js'));
+
 rl.on('line', (input) => {
     for (const file of cliFiles) {
         const command = require(`./cli/${file}`);
-        if (input === command.name) {
-            command.execute(client, race);
+        if (input.startsWith(command.name)) {
+            if (input.includes("-h") || input.includes("-help")) {
+                console.log(command.description);
+            } else {
+                command.execute(client, race, input);
             break;
+            }
         }
     }
 });
 
-client.login(process.env.BOT_TOKEN).then(() => {
+client.once(Events.ClientReady, c => {
+	console.log(`Ready! Logged in as ${c.user.tag} \n`);
     audioPlayer = new AudioPlayer(client);
     race = new Race(client, audioPlayer);
-}).catch(console.error);
+    console.log('CLI commands:');
+    for (const file of cliFiles) {
+        const command = require(`./cli/${file}`);
+        console.log(command.name);
+        console.log('\x1b[36m%s\x1b[0m', "    " + command.description);
+
+    }
+});
+
+client.login(process.env.BOT_TOKEN);

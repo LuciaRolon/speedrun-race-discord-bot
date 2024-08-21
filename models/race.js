@@ -4,9 +4,11 @@ const elo = require('../elo/elo.js');
 const seed = require('../common/seed.js');
 const generatePPF = require('../common/generatePPF.js');
 const lockVoiceChannel = require('../common/lockVoiceChannel');
+const unlockVoiceChannel = require('../common/unlockVoiceChannel');
 const updateLeaderboard = require('../common/updateLeaderboard');
+const zipReplays = require('../common/zipReplays');
 const Player = require('./player.js');
-const { MessageActionRow, MessageButton } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 
 module.exports = class Race {
     constructor(client, audioPlayer) {
@@ -22,14 +24,21 @@ module.exports = class Race {
         this.category = null;
         this.messageId = null;
         this.seed = null;
+        this.seedName = '';
         this.multistream = null;
         this.status = '';
         this.tournament = false;
         this.ranked = true;
+        this.message = null;
+        this.replays = [];
     }
 
     includes(id) {
         return this.players.find(player => player.id === id) !== undefined;
+    }
+
+    isRanked() {
+        return this.ranked;
     }
 
     removePlayer(id) {
@@ -82,6 +91,13 @@ module.exports = class Race {
         }
     }
 
+    playerHasFinished(user) {
+        if (this.finished || this.players.find(player => player.username === user.username).time || this.players.find(player => player.username === user.username).forfeited) {
+            return true;
+        }
+        return false;
+    }
+
     forfeitPlayer(user) {
         if (!this.finished && this.started && this.includes(user.id)) {
             this.players.find(player => player.username === user.username).forfeited = true;
@@ -90,7 +106,7 @@ module.exports = class Race {
     }
 
     sortPlayers() {
-        this.players.sort(function(a, b) {
+        this.players.sort(function (a, b) {
             if (a.time == null) {
                 if (b.time) {
                     return 1;
@@ -132,10 +148,14 @@ module.exports = class Race {
         return this.players.every(x => x.time != null || x.forfeited === true);
     }
 
+    playersForfeited() {
+        return this.players.every(x => x.forfeited === true);
+    }
+
     generateMultistream() {
         this.multistream = 'https://multistre.am/';
         this.players.forEach(player => {
-            let userTwitch = data.getPlayerTwitch(player.username);
+            let userTwitch = data.getPlayerTwitch(player.id);
             if (userTwitch) {
                 this.multistream += userTwitch + '/';
             } else {
@@ -144,26 +164,55 @@ module.exports = class Race {
         });
     }
 
-    initiate(category, tournament, user) {
-        this.defaults();
-        this.audioPlayer.connectToChannel();
-        this.status = 'RACE: WAITING FOR PLAYERS';
-        this.category = category;
-        if (category.includes('Randomizer') && !category.includes('Custom')) {
-            let preset = category.replace('Randomizer ', '').toLowerCase().replace(' ', '-');
-            this.seed = seed(preset);
-            if (config.generatePPF) {
-                generatePPF(this.seed, this.channel);
+    addReplay(filename, user) {
+        this.replays.push(filename);
+        this.players.find(player => player.username === user.username).replaySubmitted = true;
+    }
+
+    getReplays() {
+        return this.replays;
+    }
+
+    allReplaysSubmitted() {
+        if (!this.finished || this.playersForfeited()) {
+            return false;
+        }
+
+        this.players.every(x => x.time != null || x.forfeited === true);
+
+        for (let i = 0; i < this.players.length; i++) {
+            if (!this.players[i].forfeited && !this.players[i].replaySubmitted) {
+                return false;
             }
         }
+        
+        return true;
+    }
 
-        if (category.includes('Custom')) {
-            let preset = category.replace('Randomizer ', '').toLowerCase();
-            this.ranked = false;
-        }
+    setSeedName(name) {
+        this.seedName = name;
+    }
 
-        if (category.includes('Custom')) {
-            this.ranked = false;
+    initiate(category, unranked, tournament, interaction, raceChannel) {
+        this.defaults();
+        this.status = 'RACE: WAITING FOR PLAYERS';
+        this.category = category;
+        this.ranked = !unranked;
+        let user = interaction.user;
+        this.randomusic = !interaction.options.getBoolean('vanilla-music');
+        unlockVoiceChannel(this.client);
+
+        if (!category.includes('Custom')) {
+            let seedData = seed(category.toLowerCase());
+            this.seed = seedData;
+            this.seedName = seedData.name;
+            if (config.generatePPF) {
+                generatePPF(this.seed, this.seedName, raceChannel, category.toLowerCase(), tournament, interaction,this.randomusic,true );
+            }
+        } else {
+            var crypto = require("crypto");
+            var id = crypto.randomBytes(10).toString('hex');
+            this.seedName = "custom" + id;
         }
 
         this.finished = false;
@@ -173,37 +222,43 @@ module.exports = class Race {
         this.initiatedAt = new Date().getTime();
 
         let buttonComponents = [
-            new MessageButton()
-            .setCustomId('join')
-            .setLabel('Join')
-            .setStyle('PRIMARY'),
-            new MessageButton()
-            .setCustomId('ready')
-            .setLabel('Ready')
-            .setStyle('SUCCESS')
+            new ButtonBuilder()
+                .setCustomId('join')
+                .setLabel('Join')
+                .setStyle(ButtonStyle.Primary),
+            new ButtonBuilder()
+                .setCustomId('ready')
+                .setLabel('Ready')
+                .setStyle(ButtonStyle.Success)
         ];
 
-        if (this.seed) {
+        if (this.seed && this.randomusic) {
             buttonComponents.push(
-                new MessageButton()
-                .setLabel('Seed')
-                .setStyle('LINK')
-                .setURL(this.seed),
+                new ButtonBuilder()
+                    .setLabel('Seed')
+                    .setStyle(ButtonStyle.Link)
+                    .setURL(this.seed.link),
             );
         }
 
         buttonComponents.push(
-            new MessageButton()
-            .setLabel('Multistream')
-            .setStyle('LINK')
-            .setURL(this.multistream)
+            new ButtonBuilder()
+                .setLabel('Multistream')
+                .setStyle(ButtonStyle.Link)
+                .setURL(this.multistream)
         );
 
-        const buttons = new MessageActionRow()
+        const buttons = new ActionRowBuilder()
             .addComponents(buttonComponents);
 
+        const raceEmbed = new EmbedBuilder()
+            .setColor(0x1f0733)
+            .setTitle(((this.ranked ? 'RANKED \n' : '') + this.status))
+            .setFooter({ text: 'Category: ' + this.category });
+
         this.channel.then(channel => {
-            channel.send({ content: 'RACE STARTED', components: [buttons] }).then(msg => {
+            channel.send({ embeds: [raceEmbed], components: [buttons] }).then(msg => {
+                this.message = msg;
                 this.messageId = msg.id;
                 this.updateMessage();
             })
@@ -211,11 +266,13 @@ module.exports = class Race {
     }
 
     async start() {
-        this.audioPlayer.play();
         const sleep = m => new Promise(r => setTimeout(r, m));
+        this.audioPlayer.connectToChannel();
+        await sleep(1700);
+        this.audioPlayer.play();
         this.status = 'GET READY';
         this.updateMessage()
-        await sleep(2700);
+        await sleep(1700);
         this.status = 'Starting in: 3';
         this.updateMessage()
         await sleep(1000);
@@ -232,100 +289,103 @@ module.exports = class Race {
         await sleep(1000);
         this.status = 'PLAY!';
         this.updateMessage();
-        await sleep(1000);
+        await sleep(1500);
         this.status = 'RACE STARTED'
         this.started = true;
         this.updateMessage();
         this.audioPlayer.disconnect();
 
         let buttonComponents = [
-            new MessageButton()
-            .setCustomId('finish')
-            .setLabel('Finish')
-            .setStyle('SUCCESS'),
-            new MessageButton()
-            .setCustomId('forfeit')
-            .setLabel('Forfeit')
-            .setStyle('DANGER'),
+            new ButtonBuilder()
+                .setCustomId('finish')
+                .setLabel('Finish')
+                .setStyle(ButtonStyle.Success),
+            new ButtonBuilder()
+                .setCustomId('forfeit')
+                .setLabel('Forfeit')
+                .setStyle(ButtonStyle.Danger),
         ];
 
-        if (this.seed) {
+        if (this.seed && this.randomusic) {
             buttonComponents.push(
-                new MessageButton()
-                .setLabel('Seed')
-                .setStyle('LINK')
-                .setURL(this.seed),
+                new ButtonBuilder()
+                    .setLabel('Seed')
+                    .setStyle(ButtonStyle.Link)
+                    .setURL(this.seed.link),
             );
         }
 
         buttonComponents.push(
-            new MessageButton()
-            .setLabel('Multistream')
-            .setStyle('LINK')
-            .setURL(this.multistream)
+            new ButtonBuilder()
+                .setLabel('Multistream')
+                .setStyle(ButtonStyle.Link)
+                .setURL(this.multistream)
         );
 
         this.startedAt = new Date().getTime() + this.offset;
 
-        const buttons = new MessageActionRow()
+        const buttons = new ActionRowBuilder()
             .addComponents(buttonComponents);
 
-        this.channel.then(channel => {
-            channel.messages.fetch(this.messageId).then(msg => msg.edit({ components: [buttons] }));
-        }).catch(console.error);
+        this.message.edit({ components: [buttons] });
+
         lockVoiceChannel(this.client);
     }
 
     end() {
-        if (this.ranked) {
+        if (this.ranked && !this.playersForfeited()) {
             let adjustments = elo.resolveMatch(this.players, this.category);
             for (let i = 0; i < this.players.length; i++) {
                 this.players[i].adjustment = adjustments[i];
-                data.setPlayerId(this.players[i].username, this.players[i].id);
+                data.setPlayerUsername(this.players[i].id, this.players[i].username);
             }
+            updateLeaderboard(this.client, this.category);
         }
 
         this.status = 'RACE FINISHED';
         this.started = false;
         this.finished = true;
         this.updateMessage();
-        lockVoiceChannel(this.client);
-        updateLeaderboard(this.client, this.category);
+        unlockVoiceChannel(this.client);
+
+        if (this.allReplaysSubmitted()) {
+            this.channel.then(channel => {
+                zipReplays(channel, this);
+            }).catch(console.error);
+        }
 
         let buttonComponents = [];
 
-        if (this.seed) {
+        if (this.seed && this.randomusic) {
             buttonComponents.push(
-                new MessageButton()
-                .setLabel('Seed')
-                .setStyle('LINK')
-                .setURL(this.seed),
+                new ButtonBuilder()
+                    .setLabel('Seed')
+                    .setStyle(ButtonStyle.Link)
+                    .setURL(this.seed.link),
             );
         }
 
         buttonComponents.push(
-            new MessageButton()
-            .setLabel('Multistream')
-            .setStyle('LINK')
-            .setURL(this.multistream)
+            new ButtonBuilder()
+                .setLabel('Multistream')
+                .setStyle(ButtonStyle.Link)
+                .setURL(this.multistream)
         );
 
-        const buttons = new MessageActionRow()
+        const buttons = new ActionRowBuilder()
             .addComponents(buttonComponents);
 
-        this.channel.then(channel => {
-            channel.messages.fetch(this.messageId).then(msg => msg.edit({ components: [buttons] }));
-        }).catch(console.error);
+        this.message.edit({ components: [buttons] });
     }
 
     async update() {
         this.sortPlayers();
 
-        if (!this.started && this.playersReady() && this.players.length > 1) {
+        if (!this.started && !this.finished && this.playersReady() && this.players.length > 1) {
             await this.start();
         }
 
-        if (this.started && this.playersFinished()) {
+        if (this.started && !this.finished && this.playersFinished()) {
             this.end();
         }
 
@@ -335,80 +395,78 @@ module.exports = class Race {
     updateSeed() {
 
         let buttonComponents = [
-            new MessageButton()
-            .setCustomId('join')
-            .setLabel('Join')
-            .setStyle('PRIMARY'),
-            new MessageButton()
-            .setCustomId('ready')
-            .setLabel('Ready')
-            .setStyle('SUCCESS')
+            new ButtonBuilder()
+                .setCustomId('join')
+                .setLabel('Join')
+                .setStyle(ButtonStyle.Primary),
+            new ButtonBuilder()
+                .setCustomId('ready')
+                .setLabel('Ready')
+                .setStyle(ButtonStyle.Success)
         ];
 
-        if (this.seed) {
+        if (this.seed && this.randomusic) {
             buttonComponents.push(
-                new MessageButton()
-                .setLabel('Seed')
-                .setStyle('LINK')
-                .setURL(this.seed),
+                new ButtonBuilder()
+                    .setLabel('Seed')
+                    .setStyle(ButtonStyle.Link)
+                    .setURL(this.seed.link),
             );
         }
 
         buttonComponents.push(
-            new MessageButton()
-            .setLabel('Multistream')
-            .setStyle('LINK')
-            .setURL(this.multistream)
+            new ButtonBuilder()
+                .setLabel('Multistream')
+                .setStyle(ButtonStyle.Link)
+                .setURL(this.multistream)
         );
 
-        const buttons = new MessageActionRow()
+        const buttons = new ActionRowBuilder()
             .addComponents(buttonComponents);
 
-        this.channel.then(channel => {
-            channel.messages.fetch(this.messageId).then(msg => msg.edit({ components: [buttons] }));
-        }).catch(console.error);
+        this.message.edit({ components: [buttons] });
     }
 
     updateMessage() {
         this.sortPlayers();
-        let output = '-';
-
-        const centerPad = (str, length, char = ' ') => str.padStart((str.length + length) / 2, char).padEnd(length, char);
-        output += '\n       `' + centerPad(((this.tournament ? 'TOURNAMENT ' : '') + this.status), 33) + '`';
-        output += '\n       `' + centerPad(('Category: ' + this.category), 33) + '`';
+        let output = '```';
 
         for (let i = 0; i < this.players.length; i++) {
-            if (i == 0 && this.players[i].time && this.finished) {
-                output += '\n :first_place:';
-            } else if (i == 1 && this.players[i].time && this.finished) {
-                output += '\n :second_place:';
-            } else if (i == 2 && this.players[i].time && this.finished) {
-                output += '\n :third_place:';
-            } else {
-                output += '\n       ';
-            }
-
-            output += ('` ' + this.players[i].username.replace(/\W/gi, "")).padEnd(20, " ");
+            output += '\n';
+            output += (' ' + this.players[i].username.replace(/\W/gi, "")).padEnd(20, " ");
 
             if (this.players[i].time || this.players[i].forfeited) {
                 let rightCol = (this.players[i].forfeited) ? 'forfeited' : this.players[i].hours().toString().padStart(2, "0") + ':' + this.players[i].minutes().toString().padStart(2, "0") + ':' + this.players[i].seconds().toString().padStart(2, "0") + ' ';
-                if (this.finished && this.players[i].adjustment) {
-                    rightCol += ' ' + ((this.players[i].adjustment > 0) ? '+' + this.players[i].adjustment : this.players[i].adjustment);
+                if (this.players[i].replaySubmitted) {
+                    rightCol += ' (R)  ' 
+                } else {
+                    rightCol += '      '
                 }
-                output += (rightCol).padEnd(14, " ");
+                if (this.finished && this.players[i].adjustment) {
+                    rightCol += '      ' + ((this.players[i].adjustment > 0) ? '+' + this.players[i].adjustment : this.players[i].adjustment);
+                }
+                output += (rightCol).padEnd(22, " ");
             } else {
                 let rightCol = '';
                 if (!this.started) {
                     rightCol = (this.players[i].ready) ? 'ready ' : ' ';
                 }
-                output += (rightCol).padEnd(14, " ");
+                output += (rightCol).padEnd(22, " ");
             }
-            output += '`';
         }
+        if (this.players.length < 1) {
+            output += ' ';
 
-        this.channel.then(channel => {
-            channel.messages.fetch(this.messageId).then(msg => msg.edit(output));
-        }).catch(console.error);
+        }
+        output += '```';
+
+        const raceEmbed = new EmbedBuilder()
+            .setColor(0x1f0733)
+            .setTitle(((this.ranked ? 'RANKED ' : '') + this.status))
+            .setDescription(output)
+            .setFooter({ text: 'Category: ' + this.category });
+
+        this.message.edit({ embeds: [raceEmbed] });
     }
 
     restart() {
@@ -422,6 +480,7 @@ module.exports = class Race {
             player.ready = false;
         });
         this.updateMessage();
+        unlockVoiceChannel(this.client);
     }
 
     defaults() {
@@ -437,6 +496,8 @@ module.exports = class Race {
         this.multistream = null;
         this.tournament = false;
         this.ranked = true;
+        this.seedName = '';
+        this.replays = [];
     }
 
     close() {
@@ -449,27 +510,41 @@ module.exports = class Race {
 
         let buttonComponents = [];
 
-        if (this.seed) {
+        if (this.seed && this.randomusic) {
             buttonComponents.push(
-                new MessageButton()
-                .setLabel('Seed')
-                .setStyle('LINK')
-                .setURL(this.seed),
+                new ButtonBuilder()
+                    .setLabel('Seed')
+                    .setStyle(ButtonStyle.Link)
+                    .setURL(this.seed.link),
             );
         }
 
         buttonComponents.push(
-            new MessageButton()
-            .setLabel('Multistream')
-            .setStyle('LINK')
-            .setURL(this.multistream)
+            new ButtonBuilder()
+                .setLabel('Multistream')
+                .setStyle(ButtonStyle.Link)
+                .setURL(this.multistream)
         );
 
-        const buttons = new MessageActionRow()
+        const buttons = new ActionRowBuilder()
             .addComponents(buttonComponents);
 
-        this.channel.then(channel => {
-            channel.messages.fetch(this.messageId).then(msg => msg.edit({ components: [buttons] }));
-        }).catch(console.error);
+        this.message.edit({ components: [buttons] });
     }
+
+    /*
+    Discord.js internally retries API calls
+    async retry(apiCall, retries) {
+        const sleep = m => new Promise(r => setTimeout(r, m));
+        for (let i = 0; i < retries; i++) {
+            try {
+                apiCall();
+                return;
+            } catch (error) {
+                console.log(error);
+                await sleep(Math.pow(12, i) + Math.floor(Math.random() * 10));
+            }
+        }
+    }
+    */
 }

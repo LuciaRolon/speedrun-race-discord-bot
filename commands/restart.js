@@ -1,4 +1,6 @@
+const config = require('../config.json');
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const unlockVoiceChannel = require('../common/unlockVoiceChannel');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -20,6 +22,7 @@ module.exports = {
             return;
         }
         race.restart();
+        unlockVoiceChannel(client);
         await interaction.reply({ content: 'Race restarted!', ephemeral: true });
     },
 };

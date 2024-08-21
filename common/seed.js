@@ -1,5 +1,5 @@
 module.exports = (preset) => {
-    let adjectives = [
+    let adjectivesNormal = [
         "Invincible",
         "Burning",
         "Preposterous",
@@ -13,10 +13,12 @@ module.exports = (preset) => {
         "Tall",
         "Large",
         "Terrible",
+        "Distorted",
         "Curious",
         "Pregnant",
         "Useful",
         "Decent",
+        "Enhanced",
         "Asleep",
         "Cultural",
         "Indistinguishable",
@@ -24,6 +26,7 @@ module.exports = (preset) => {
         "Healthy",
         "Logical",
         "Popular",
+        "Overdriven",
         "Unhappy",
         "Known",
         "Critical",
@@ -68,6 +71,7 @@ module.exports = (preset) => {
         "Chipped",
         "Squishy",
         "Corrupted",
+        "Predictable",
         "Super",
         "Sharp",
         "Junior",
@@ -87,7 +91,6 @@ module.exports = (preset) => {
         "Suboptimal",
         "Ultra",
         "Counter",
-        "Powerful",
         "Cowardly",
         "Hairy",
         "Rage",
@@ -100,9 +103,119 @@ module.exports = (preset) => {
         "Moody",
         "Frozen",
         "Flawless",
-        "Pointless"
+        "Pointless",
+        "Shinku",
+        "Mesatsu",
+        "Terran",
+        "Protoss",
+        "Zerg",
+        "Orcish",
+        "Elvish",
+        "Tarot",
+        "Bohemian",
+        "Arcane",
+        "Mystic",
+        "Light",
+        "Red",
+        "Crimson",
+        "Garnet",
+        "Ruby",
+        "Blue",
+        "Azure",
+        "Lapis",
+        "Cobalt",
+        "Sapphire",
+        "White",
+        "Pearl",
+        "Ivory",
+        "Crystal",
+        "Diamond",
+        "Topaz",
+        "Amber",
+        "Jade",
+        "Obsidian",
+        "Emerald",
+        "Fine",
+        "Strong",
+        "Grand",
+        "Valiant",
+        "Glorious",
+        "Blessed",
+        "Saintly",
+        "Awesome",
+        "Holy",
+        "Godly",
+        "Bronze",
+        "Iron",
+        "Steel",
+        "Silver",
+        "Gold",
+        "Platinum",
+        "Mithril",
+        "Meteoric",
+        "Weird",
+        "Strange",
+        "Jagged",
+        "Deadly",
+        "Heavy",
+        "Vicious",
+        "Brutal",
+        "Massive",
+        "Savage",
+        "Ruthless",
+        "Merciless",
+        "Khajit",
+        "Argonian",
+        "Redguard",
+        "Breton",
+        "Nord",
+        "Dunmer",
+        "Altmer",
+        "Falmer",
+        "Bosmer",
+        "Plentiful",
+        "Bountiful",
+        "Angels",
+        "Arch-Angels",
+        "Final",
+        "Mandalorian",
+        "Prototype",
+        "Sith",
+        "Jedi",
+        "Battle",
+        "Autobot",
+        "Decepticon",
+        "Primal",
+        "Whovian",
+        "Golgari",
+        "Azorius",
+        "Boros",
+        "Simic",
+        "Dimir",
+        "Selesnya",
+        "Gruul",
+        "Orzhov",
+        "Rakdos",
+        "Izzet",
+        "Infinite",
+        "Eldritch",
+        "Bucolic",
+        "Serendipitous",
+        "Angsty",
+        "Death",
+        "Chase",
+        "Urzas",
+        "Dank",
+        "Borg",
+        "Romulan",
+        "Klingon",
+        "Cardassian",
+        "Jaffa",
+        "Goauld",
+        "Asgardian",
+        "Vulcan"
     ];
-    let nouns = [
+    let nounsNormal = [
         "Axelord",
         "Fleaman",
         "Nutella",
@@ -118,6 +231,7 @@ module.exports = (preset) => {
         "Zerg",
         "Terran",
         "Protoss",
+        "SCP",
         "Spark",
         "Steel",
         "Rage",
@@ -146,7 +260,6 @@ module.exports = (preset) => {
         "Sword",
         "Boss",
         "Seed",
-        "Alien",
         "Cable",
         "Soup",
         "Poem",
@@ -210,15 +323,145 @@ module.exports = (preset) => {
         "Button",
         "Monitor",
         "Controller",
-        "Potential"
+        "Potential",
+        "Hadoken",
+        "Justice",
+        "Mew",
+        "Cannon",
+        "TatsumakiSenpukyaku",
+        "Gohado",
+        "Orc",
+        "Elf",
+        "Ent",
+        "Spider",
+        "Death",
+        "Demon",
+        "Goblin",
+        "Wurm",
+        "Spirit",
+        "Horror",
+        "God",
+        "Devil",
+        "Minotaur",
+        "Blast",
+        "Bus",
+        "Horse",
+        "Moon",
+        "Executioner",
+        "Assassin",
+        "Druid",
+        "Barbarian",
+        "Sorceress",
+        "Wizard",
+        "Necromancer",
+        "Paladin",
+        "Amazon",
+        "Crusader",
+        "Rogue",
+        "Warrior",
+        "Sorcerer",
+        "Angel",
+        "Nephalim",
+        "Evil",
+        "Lunch",
+        "Breakfast",
+        "Artifact",
+        "Enchantment",
+        "Creature",
+        "Planeswalker",
+        "Flux",
+        "Tardis",
+        "Companion",
+        "Hour",
+        "Minute",
+        "Second",
+        "Day",
+        "Month",
+        "Year",
+        "Talisman",
+        "Curio",
+        "Bangle",
+        "Broach",
+        "Spell",
+        "Sorcery",
+        "Mummy",
+        "Werewolf",
+        "Werebear",
+        "Werebat",
+        "Knight",
+        "Soldier",
+        "King",
+        "Queen",
+        "Rebel",
+        "Mercenary",
+        "Error",
+        "Object",
+        "Prime",
+        "Sage",
+        "Butcher",
+        "Echo",
+        "Leyline",
+        "Bahamut",
+        "Cactuar",
+        "Tonberry",
+        "Chocobo",
+        "Moogle",
+        "Moomba",
+        "Surge",
+        "Eidolon",
+        "Esper",
+        "Leviathan",
+        "Phoenix",
+        "Pikachu",
+        "Charizard",
+        "Xenomorph",
+        "Android",
+        "Jedi",
+        "Sith",
+        "Maverick",
+        "Mandalorian",
+        "Grail",
+        "Card",
+        "Slime",
+        "Mewtwo",
+        "Fireflower",
+        "Mushroom",
+        "Starman",
+        "Mario",
+        "Peach",
+        "Toad",
+        "Luigi",
+        "Bowser",
+        "Mask",
+        "Ganon",
+        "Materia",
+        "Fairy",
+        "Battletoad",
+        "Kombat",
+        "Portal",
+        "CompanionCube",
+        "Cake",
+        "Dervish",
+        "Kraken",
+        "Meme",
+        "Jaffa",
+        "Goauld",
+        "Stargate",
+        "Zatniktel",
+        "Q",
+        "Cardassian",
+        "Klingon",
+        "Romulan",
+        "Vulcan"
     ];
 
-    adjectivesHalloween = [
+    let adjectivesHalloween = [
         "Scary",
         "Terrifying",
         "Spooky",
         "Eerie",
         "Horrendous",
+        "Abyssal",
         "Spinechilling",
         "Bloodcurdling",
         "Chilling",
@@ -239,11 +482,35 @@ module.exports = (preset) => {
         "Petrifying",
         "Undead",
         "Vile",
-        "Evil"
+        "Evil",
+        "Unsettling",
+        "Incorporeal",
+        "Ephemeral",
+        "Haunting",
+        "Frightening",
+        "Graven",
+        "Abhorrent",
+        "Surreal",
+        "Insidious",
+        "Sordid",
+        "Malicious",
+        "Unspeakable",
+        "Defiled",
+        "Unscrupulous",
+        "Sinister",
+        "Malevolent",
+        "Haunted",
+        "Gory",
+        "Decapitated",
+        "Disemboweled",
+        "Deceased",
+        "Fanged",
+        "Paranormal"
     ];
-    nounsHalloween = [
+    let nounsHalloween = [
         "Skeleton",
         "Ghost",
+        "SCP",
         "Vampire",
         "Ghoul",
         "Werewolf",
@@ -257,7 +524,11 @@ module.exports = (preset) => {
         "Witch",
         "MindFlayer",
         "Devil",
+        "Demon",
+        "Fiend",
         "Alien",
+        "Lich",
+        "Gargoyle",
         "Abomination",
         "Construct",
         "Wendigo",
@@ -268,19 +539,78 @@ module.exports = (preset) => {
         "Banshee",
         "Wraith",
         "Arachnid",
-        "Monstrosity"
+        "Monstrosity",
+        "Yokai",
+        "Spirit",
+        "Wretch",
+        "Fiend",
+        "Oni",
+        "Kitsune",
+        "Chupacabra",
+        "Basilisk",
+        "Horror",
+        "Nightmare",
+        "Cockatrice",
+        "Kraken",
+        "Djinn",
+        "Ogre",
+        "Gorgon",
+        "Warlock",
+        "Ooze",
+        "Shedim",
+        "Asura",
+        "Daeva",
+        "Gallas",
     ];
+
+    let adjectivesHolidays = [
+        "Snowy",
+        "Merry",
+        "Happy",
+        "Jolly",
+        "Cozy",
+        "Festive",
+        "Relaxing",
+        "Cheery",
+        "Warm",
+        "Sparkly",
+        "Wintry",
+        "Joyful",
+        "Snow",
+        "Giving",
+        "Celebratory",
+        "Joyous",
+        "Yule",
+        "Frosty",
+        "Jingly"
+    ];
+
+    let adjectives = [];
+    let nouns = [];
+
+    let month = new Date().getMonth() + 1;
+
+    switch (month) {
+        case 10:
+            adjectives = adjectivesHalloween;
+            nouns = nounsHalloween;
+            break;
+
+        case 12:
+            adjectives = adjectivesHolidays;
+            nouns = nounsNormal;
+            break;
+
+        default:
+            adjectives = adjectivesNormal;
+            nouns = nounsNormal;
+            break;
+    }
 
     let adjective = adjectives[Math.floor(Math.random() * Math.floor(adjectives.length - 1))];
     let noun = nouns[Math.floor(Math.random() * Math.floor(nouns.length - 1))];
-    let number = Math.floor(Math.random() * Math.floor(102));
-    if (number == 100) {
-        number = 420;
-    }
-    if (number == 101) {
-        number = 702;
-    }
-    if (number == 69) {
+    let number = Math.floor(Math.random() * 999);
+    if (number % 100 === 69) {
         number = '69Nice';
     }
 
@@ -294,10 +624,14 @@ module.exports = (preset) => {
     const scavengerUrl = 'sc.t.sotn.io/?';
     const handUrl = 'eh.t.sotn.io/?';
     const batUrl = 'sotn.io/?tp:bat-master,,';
-    const bingo = 'testrunnersrl.github.io/?seed=';
-    const bingoSuffix = '&game=sotn&type=';
-    const bingospeedrunUrluffix = '&game=sotnr&type=';
-    let glitchSeed = false;
+    const nimbleUrl = 'sotn.io/?tp:nimble,,';
+    const lycanthropeUrl = 'sotn.io/?tp:lycanthrope,,';
+    const expeditionUrl = 'sotn.io/?tp:expedition,,';
+    const warlockUrl = 'sotn.io/?tp:warlock,,';
+
+    //const bingo = 'testrunnersrl.github.io/?seed=';
+    //const bingoSuffix = '&game=sotn&type=';
+    //const bingospeedrunUrluffix = '&game=sotnr&type=';
     let site = '';
     let suffix = '';
 
@@ -319,13 +653,24 @@ module.exports = (preset) => {
             break;
         case "glitch":
             site += glitchUrl;
-            glitchSeed = true;
             break;
         case "scavenger":
             site += scavengerUrl;
             break;
         case "bat-master":
             site += batUrl;
+            break;
+        case "nimble":
+            site += nimbleUrl;
+            break;
+        case "lycanthrope":
+            site += lycanthropeUrl;
+            break;
+        case "expedition":
+            site += expeditionUrl;
+            break;
+        case "warlock":
+            site += warlockUrl;
             break;
         case "empty-hand":
             site += handUrl;
@@ -334,7 +679,15 @@ module.exports = (preset) => {
             site += rando;
     }
 
-    let seed = 'https://' + site + adjective + noun + number + suffix;
+    console.log(site);
+
+    let seedName = adjective + noun + number + suffix;
+    let seedLink = 'https://' + site + seedName;
+
+    let seed = {
+        name: seedName,
+        link: seedLink
+    };
 
     return seed;
 };
