@@ -68,8 +68,11 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
     let newlogs = '';
     let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName, "--race","-l"];
 
-    if (!randoMusic && catagory !== "boss-rush"){
+    if (!randoMusic && catagory !== "boss-rush" && catagory !== "bingo"){
         args.push("--opt","~m")
+    }
+    if (catagory === "bingo"){
+        args.push("--opt","~r")
     }
     console.log(randoPath + "randomize", args);
     if (tournament && catagory !== "boss-rush"){
