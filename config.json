@@ -54,10 +54,6 @@
             "value": "Warlock"
         },
         {
-            "name": "Adventure",
-            "value": "Adventure"
-        },
-        {
             "name": "OG",
             "value": "OG"
         },
@@ -70,10 +66,74 @@
             "value": "Bat-master"
         },
         {
+            "name": "bingo",
+            "value": "bingo"
+        },
+        {
             "name": "Custom",
             "value": "Custom"
         }
     ],
     "leaderboardmessages": [
+    ],
+    "bingoObjectives": [
+        {"name": "Collect all familiars"},
+        {"name": "Defeat Olrox with Sword Familiar Summoned"},
+        {"name": "Complete the Clock Tower Puzzle in both castles"},
+        {"name": "Do 40 or more damage with spirit orb on (Excluding Crits)"},
+        {"name": "Collect Spirit Orb, Faerie Scroll and Merman Statue"},
+        {"name": "Collect Power of Mist without using Soul of Bat or Gravity Boots"},
+        {"name": "Take Damage from the Confession Booth"},
+        {"name": "Pickup holy symbol"},
+        {"name": "Press the Shortcut Switch between Castle Entrance And Marble Gallery"},
+        {"name": "Defeat galamoth"},
+        {"name": "Defeat Hippogryph before defeating Karasuman in first castle"},
+        {"name": "Defeat Scylla with Holy Symbol Active"},
+        {"name": "Defeat granfaloon"},
+        {"name": "Defeat Medusa with only subweapons"},
+        {"name": "Defeat Scylla Without Spells, subweapons, or equipment"},
+        {"name": "Defeat Beezlebub Without Transforming"},
+        {"name": "Defeat Doppleganger 40 without subweapons"},
+        {"name": "2 bosses sub weapons only"},
+        {"name": "Pickup silver ring while wearing spikebreaker"},
+        {"name": "Pickup spikebreaker while having Echo of Bat"},
+        {"name": "Use Gravity Boots on the Librarian"},
+        {"name": "Have fairy familiar uses a non healing item"},
+        {"name": "complete the spell menu"},
+        {"name": "Access the Jewel sword location"},
+        {"name": "Pickup skill of wolf, power of wolf, and soul of wolf"},
+        {"name": "Pickup Soul of bat, Fire of Bat, Echo, and Force of Echo"},
+        {"name": "defeat creature using only spells"},
+        {"name": "All Castle 1 warps"},
+        {"name": "All castle 2 warps"},
+        {"name": "Defeat doppleganager 10 before acquiring cube of zoe"},
+        {"name": "Kill a dodo bird"},
+        {"name": "Look Through the telescope"},
+        {"name": "Kill Richter (You can save beforehand and reset after killing him)"},
+        {"name": "Defeat slogra and giabon at castle entrance"},
+        {"name": "Collect All Vlad Relics"},
+        {"name": "Kill a Guardian"},
+        {"name": "Kill 3 Azaghals"},
+        {"name": "Kill at least one Lion, Scarecrow, and Tin Man"},
+        {"name": "Kill at least one Red Venus Weed and Blue Venus Weed"},
+        {"name": "Defeat Fake Heroes (Sypha, Grant, and Trevor without spells)"},
+        {"name": "Have the Ghost Familiar Kill a Ghost"},
+        {"name": "Have the Devil Familiar kill an Imp"},
+        {"name": "Have the Bat Familiar kill an bat"},
+        {"name": "Have the Devil Familiar Press two switches"},
+        {"name": "Kill at least 1 Ctulhu in both castles"},
+        {"name": "Kill grave keeper Using Fists and Kicks Only"},
+        {"name": "Kill a Frozen Half"},
+        {"name": "Kill at least 1 Blade, Hammer, and Gurkha"},
+        {"name": "Kill at least 1 fire demon"},
+        {"name": "Kill all 3 types of Spectral Sword (lvl 13, lvl 15, and lvl 36)"},
+        {"name": "Kill at least 5 Cloaked Knights"},
+        {"name": "Pickup Leapstone before Form of Mist"},
+        {"name": "kill spike ball"},
+        {"name": "visit beryl circlet room"},
+        {"name": "visit cave life apple location"},
+        {"name": "visit reverse spike breaker room"},
+        {"name": "visit both sub weapon vats room"},
+        {"name": "visit osafune room in reverse castle"}
     ]
 }
