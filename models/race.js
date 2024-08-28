@@ -7,6 +7,7 @@ const lockVoiceChannel = require('../common/lockVoiceChannel');
 const unlockVoiceChannel = require('../common/unlockVoiceChannel');
 const updateLeaderboard = require('../common/updateLeaderboard');
 const zipReplays = require('../common/zipReplays');
+const createBingosyncRoom = require('../common/createBingo.js');
 const Player = require('./player.js');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 
@@ -193,7 +194,7 @@ module.exports = class Race {
         this.seedName = name;
     }
 
-    initiate(category, unranked, tournament, interaction, raceChannel) {
+    initiate(category, unranked, tournament, interaction, raceChannel, bingoLockout, bingoPassword) {
         this.defaults();
         this.status = 'RACE: WAITING FOR PLAYERS';
         this.category = category;
@@ -202,6 +203,10 @@ module.exports = class Race {
         this.randomusic = !interaction.options.getBoolean('vanilla-music');
         unlockVoiceChannel(this.client);
 
+        let bingoData = null;
+        if (category.includes("bingo")){
+            bingoData = createBingosyncRoom(this.client, bingoLockout, bingoPassword); 
+        }
         if (!category.includes('Custom')) {
             let seedData = seed(category.toLowerCase());
             this.seed = seedData;
@@ -213,7 +218,7 @@ module.exports = class Race {
             var crypto = require("crypto");
             var id = crypto.randomBytes(10).toString('hex');
             this.seedName = "custom" + id;
-        }
+        }        
 
         this.finished = false;
         this.tournament = tournament;
@@ -251,10 +256,11 @@ module.exports = class Race {
         const buttons = new ActionRowBuilder()
             .addComponents(buttonComponents);
 
+        let raceFooter = 'Category: ' + this.category;        
         const raceEmbed = new EmbedBuilder()
             .setColor(0x1f0733)
             .setTitle(((this.ranked ? 'RANKED \n' : '') + this.status))
-            .setFooter({ text: 'Category: ' + this.category });
+            .setFooter({ text: raceFooter });
 
         this.channel.then(channel => {
             channel.send({ embeds: [raceEmbed], components: [buttons] }).then(msg => {
