@@ -13,7 +13,7 @@
     "rematchTimeoutSeconds": "8000",
     "generatePPF": true,
     "sotnVanillaBinPath": "../BountyHunterTool/'Castlevania - Symphony of the Night (USA) (Track 1).bin'",
-    "randoPath": "D:/SotN-Randomizer-master/",
+    "randoPath": "D:/Github Desktop/Repositories/SotN-Randomizer/",
     "patchFolder": "D:/GithubDesktop/Repositories/speedrun-race-discord-bot/patches/",
     "replaysFolder": "D:/GithubDesktop/Repositories/speedrun-race-discord-bot/replays/",
     "ppfApplierPath": "../'ApplyPPF'/'Apply PPF'/apply_ppf.exe",
