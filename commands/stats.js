@@ -39,16 +39,8 @@ module.exports = {
                         value: 'warlock',
                     },
                     {
-                        name: 'adventure',
-                        value: 'adventure',
-                    },
-                    {
                         name: 'og',
                         value: 'og',
-                    },
-                    {
-                        name: 'speedrun',
-                        value: 'speedrun',
                     },
                     {
                         name: 'bat-master',
@@ -63,32 +55,12 @@ module.exports = {
                         value: 'bountyhunter',
                     },
                     {
-                        name: 'summoner',
-                        value: 'summoner',
-                    },
-                    {
-                        name: 'scavenger',
-                        value: 'scavenger',
-                    },
-                    {
                         name: 'aperture',
                         value: 'aperture',
                     },
                     {
-                        name: 'breach',
-                        value: 'breach',
-                    },
-                    {
-                        name: 'forge',
-                        value: 'forge',
-                    },
-                    {
                         name: 'big-toss',
                         value: 'big-toss',
-                    },
-                    {
-                        name: 'grand-tour',
-                        value: 'grand-tour',
                     },
                     {
                         name: 'crash-course',
@@ -105,6 +77,14 @@ module.exports = {
                     {
                         name: 'magic-mirror',
                         value: 'magic-mirror',
+                    },
+                    {
+                        name: 'bingo',
+                        value: 'bingo',
+                    },
+                    {
+                        name: 'Custom',
+                        value: 'Custom',
                     },
                 ))
         .addUserOption(option =>

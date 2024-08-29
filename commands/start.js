@@ -44,10 +44,6 @@ module.exports = {
                         value: 'og',
                     },
                     {
-                        name: 'speedrun',
-                        value: 'speedrun',
-                    },
-                    {
                         name: 'bat-master',
                         value: 'bat-master',
                     },
@@ -60,32 +56,12 @@ module.exports = {
                         value: 'bountyhunter',
                     },
                     {
-                        name: 'summoner',
-                        value: 'summoner',
-                    },
-                    {
-                        name: 'scavenger',
-                        value: 'scavenger',
-                    },
-                    {
                         name: 'aperture',
                         value: 'aperture',
                     },
                     {
-                        name: 'breach',
-                        value: 'breach',
-                    },
-                    {
-                        name: 'forge',
-                        value: 'forge',
-                    },
-                    {
                         name: 'big-toss',
                         value: 'big-toss',
-                    },
-                    {
-                        name: 'grand-tour',
-                        value: 'grand-tour',
                     },
                     {
                         name: 'crash-course',
