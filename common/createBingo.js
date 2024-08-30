@@ -60,7 +60,8 @@ module.exports = (client, bingoLockout, bingoPassword) => {
                 "custom_json": JSON.stringify(config.bingoObjectives), 
                 "lockout_mode": lockoutMode,  
                 "variant_type": "172",  // Randomized Variant
-                "seed": ""
+                "seed": "",
+                "hide_card": "on"
             });
 
             // Step 4: Send the POST request to create the room
