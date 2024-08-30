@@ -17,6 +17,17 @@ const SOTN_IO_SUPPORTED_PRESETS =
     "bat-master",
     "scavenger"
 ];
+const mapColors = [
+    "u",
+    "r",
+    "g",
+    "p",
+    "n",
+    "k",
+    "b",
+    "i",
+    "y"
+]
 
 function sendReply(patchFilePath,patchFileName,output, channel, interaction,isRace) {
     if (fs.existsSync(patchFilePath)) {
@@ -66,6 +77,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
 
     let logs = '';
     let newlogs = '';
+    let mapColor = "-m " + mapColors[Math.floor(Math.random() * Math.floor(mapColors.length - 1))]
     let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName, "--race","-l"];
 
     if (!randoMusic && catagory !== "boss-rush" && catagory !== "bingo"){
@@ -77,6 +89,8 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
     console.log(randoPath + "randomize", args);
     if (tournament && catagory !== "boss-rush"){
         args.push("-t")
+    } else {
+        args.push(mapColor) // push a random map color to the seed.
     }
     console.log(randoPath + "randomize", args);
     let randomizer;
