@@ -1,22 +1,7 @@
 const config = require('../config.json');
 const cp = require('child_process');
 const fs = require('fs');
-const simpleGit = require('simple-git');
-const SOTN_IO_SUPPORTED_PRESETS = 
-[
-    "guarded-og",
-    "safe",
-    "casual",
-    "nimble",
-    "lycanthrope",
-    "expedition",
-    "warlock",
-    "adventure",
-    "og",
-    "speedrun",
-    "bat-master",
-    "scavenger"
-];
+
 
 function sendReply(patchFilePath,patchFileName,output, channel, interaction,isRace) {
     if (fs.existsSync(patchFilePath)) {
@@ -57,11 +42,6 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
     let patchFileName = catagory + "-" + seedName + ".ppf";
     let randoPath = config.randoPath;
 
-
-    const git = simpleGit({
-        baseDir: randoPath
-    });
-
     console.log("generating seed...");
 
     let logs = '';
@@ -80,14 +60,8 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
     }
     console.log(randoPath + "randomize", args);
     let randomizer;
-    if(SOTN_IO_SUPPORTED_PRESETS.includes(catagory)){
-        console.log(config.patchFolder + patchFileName);
-        console.log(seed);
-        randomizer = cp.fork(randoPath + "randomize", ["-o", config.patchFolder + patchFileName, seed.link], { cwd: randoPath, stdio: ['ignore', 'pipe', 'pipe', 'ipc'] });
-    }
-    else{
-        randomizer = cp.fork(randoPath + "randomize", args, { cwd: randoPath, stdio: ['ignore', 'pipe', 'pipe', 'ipc'] });
-    }
+    randomizer = cp.fork(randoPath + "randomize", args, { cwd: randoPath, stdio: ['ignore', 'pipe', 'pipe', 'ipc'] });
+
 
     randomizer.stdout.on('data', (outdata) => {
         logs += outdata;
@@ -106,8 +80,14 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
         }
         output+= 'https://ppf.sotn.io/'
         output += '\n Starting equipment: ||' + items + '||';
-        if(catagory === "bountyhunter" || catagory === "chaos" || catagory === "chaos-lite"){
-            let ppfApplier = cp.exec("D:/GithubDesktop/Repositories/speedrun-race-discord-bot/scripts/genBH.sh " + config.sotnVanillaBinPath + " " + config.ppfApplierPath + " " +config.patchFolder + patchFileName + " " +config.bhGeneratorToolPath);
+        if(catagory === "bountyhunter" || catagory === "chaos" || catagory === "chaos-lite" || catagory === "bountyhuntertc" || catagory === "hitman"){
+            let ars = "-input";
+            if(catagory === "bountyhuntertc"){
+                ars = "-tconf";
+            }else if(catagory === "hitman"){
+                ars = "-hitmn";
+            }
+            let ppfApplier = cp.exec("D:/GithubDesktop/Repositories/speedrun-race-discord-bot/scripts/genBH.sh " + config.sotnVanillaBinPath + " " + config.ppfApplierPath + " " +config.patchFolder + patchFileName + " " + config.bhGeneratorToolPath + " " + ars);
             ppfApplier.stderr.on('data', (outdata) => {
                 newlogs += outdata;
             });

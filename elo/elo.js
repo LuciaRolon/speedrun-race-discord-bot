@@ -31,11 +31,55 @@ function calculatePoints(eloA, eloB, Kvalue, result) {
     return roundToFive(adjustment);
 }
 
+function millisecondsToHMS(milliseconds) {
+    if(milliseconds === null){
+        return null;
+    }
+    const totalSeconds = Math.floor(milliseconds / 1000); // Convert milliseconds to seconds
+    const hours = Math.floor(totalSeconds / 3600); // Calculate hours
+    const minutes = Math.floor((totalSeconds % 3600) / 60); // Calculate minutes
+    const seconds = totalSeconds % 60; // Calculate remaining seconds
+
+    // Format the string to "HH:MM:SS" with leading zeros
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+function getCurrentDateTimeString() {
+    const now = new Date(); // Get the current date and time
+
+    // Format the date components
+    const year = now.getUTCFullYear(); // Get the current year (UTC)
+    const month = String(now.getUTCMonth() + 1).padStart(2, '0'); // Get the current month (UTC) and pad with zero
+    const day = String(now.getUTCDate()).padStart(2, '0'); // Get the current day (UTC) and pad with zero
+
+    // Format the time components
+    const hours = String(now.getUTCHours()).padStart(2, '0'); // Get the current hours (UTC) and pad with zero
+    const minutes = String(now.getUTCMinutes()).padStart(2, '0'); // Get the current minutes (UTC) and pad with zero
+    const seconds = String(now.getUTCSeconds()).padStart(2, '0'); // Get the current seconds (UTC) and pad with zero
+
+    // Construct the final ISO 8601 formatted string
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+}
+
 module.exports = {
-    resolveMatch: function(matchPlayers, category, local) {
+    resolveMatch: function(matchPlayers, category, isRanked, raceId) {
         let adjustments = [];
+        matchPlayers.sort((a, b) => {
+            // Check if 'a.time' or 'b.time' is null
+            if (a.time === null && b.time === null) return 0; // Both are null, keep order
+            if (a.time === null) return 1; // 'a.time' is null, so 'b' comes before
+            if (b.time === null) return -1; // 'b.time' is null, so 'a' comes before
+
+            // Compare non-null times
+            return a.time - b.time; // Sort in ascending order
+        });
         for (let i = 0; i < matchPlayers.length; i++) {
             let adjustment = 0;
+            if (!isRanked){
+                // Non-ranked matches should not change a player's elo
+                adjustments.push(adjustment);
+                continue;
+            }
             let playerElo = data.getPlayerElo(matchPlayers[i].id, category);
             let playerK = data.checkPlayerRanked(matchPlayers[i].id, category) ? K : KPlacement;
 
@@ -59,13 +103,22 @@ module.exports = {
             }
             adjustments.push(adjustment);
         }
-
+        let results = []
+        let placement = 1;
+        const matchDate = getCurrentDateTimeString();
+        // Call Upload Match Results
         for (let i = 0; i < matchPlayers.length; i++) {
-            data.adjustElo(matchPlayers[i].id, category, adjustments[i]);
-            if (local) {
-                console.log(matchPlayers[i].id + ' ' + adjustments[i]);
-            }
+            results.push({
+                "user_id": matchPlayers[i].id,
+                "placement": placement,
+                "elo_change": adjustments[i],
+                "time": millisecondsToHMS(matchPlayers[i].time),
+                "forfeited": matchPlayers[i].forfeited,
+                "finished_at": matchDate
+            })
+            placement++;
         }
+        data.uploadMatchResults(category, isRanked, results, raceId)
         return adjustments;
     }
 };

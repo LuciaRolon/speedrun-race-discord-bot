@@ -141,8 +141,14 @@ module.exports = {
 
         let output = '';
         if (stats && isPlayer) {
-            output += category + ' stats';
-            output += '\n Stream: <' + player.twitch + '>';
+            if(category !== null) {
+                output += category + ' stats';
+            }else{
+                output += 'Player stats';
+            }
+            if(player.twitch !== undefined){
+                output += '\n Stream: <' + player.twitch + '>';
+            }
             stats.categories.forEach(category => {
                 output += '\n' + ('`Category: ' + category.name).padEnd(35, " ") + '`';
                 output += '\n' + ('`  Rank: ' + category.rank).padEnd(35, " ") + '`';
@@ -153,7 +159,12 @@ module.exports = {
             output += 'Stats:';
             output += '\n`' + centerPad((category), 24) + '`';
             output += '\n`' + (' Players: ' + stats.categoryPlayers).padEnd(24, " ") + '`';
-            output += '\n`' + centerPad(('Top ' + oTop), 24) + '`';
+            if(oTop !== null){
+                output += '\n`' + centerPad(('Top ' + oTop), 24) + '`';
+            }else{
+                output += '\n`' + centerPad(('Top Players'), 24) + '`';
+            }
+
             for (let i = 0; i < stats.top.length; i++) {
                 output += '\n`' + ((i + 1) + '.' + stats.top[i].username).padEnd(19, " ") + (stats.top[i].elo + ' ').padEnd(5, " ") + '`';
                 if (i == oTop) {
@@ -171,8 +182,6 @@ module.exports = {
             } else {
                 hidePost = true 
             }
-
-        output = output.substring(0,1999) + '`'
 
         await interaction.reply({ content: output, ephemeral: hidePost });
     },

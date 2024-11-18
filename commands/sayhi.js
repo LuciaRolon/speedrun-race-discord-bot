@@ -16,7 +16,6 @@ module.exports = {
         output += '\nI do serve other functions; as I am ultimately a race bot. You can utilize me to complete many functions including generating non-native randomizer seeds and starting races!';
         output += '\n ';
         output += '\n`/pager` toggles whether you\'re part of the the RacePager role. If you want to know when races are starting, use this command.';
-        output += '\n`/generate` will get you a seed from the presets available exclusively through me! https://discord.com/channels/407759960588419073/566486385377280001/1144400736524976279 will tell you how.';
         output += '\n`/start` is used to start races. https://discord.com/channels/407759960588419073/566486385377280001/1144400712781008926 will tell you more about this.';
         output += '\n`/replay` starts the process of uploading a replay after you finish a race. Replays are required in tournament races unless you forfeit.';
         output += '\n`/stream` can set your stream in case your Discord username doesn\'t match your twitch username. This is used for multistreams for races.';

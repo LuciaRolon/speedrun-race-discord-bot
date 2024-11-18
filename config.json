@@ -1,10 +1,10 @@
 {
-    "raceChannelId": "566486385377280001",
-    "raceVoiceChannelId": "407763206564741120",
-    "pagerRoleId": "632571703398105098",
-    "refereeRoleId": "876383410212462602",
-    "GuildId": "407759960588419073",
-    "ClientId": "1126148161602330835",
+    "raceChannelId": "1137884971537801287",
+    "raceVoiceChannelId": "1137877815061135381",
+    "pagerRoleId": "1137885222122311720",
+    "refereeRoleId": "1137885278724444242",
+    "GuildId": "1137877814574600312",
+    "ClientId": "1137878765523963994",
     "maxOffsetSeconds": "15",
     "timeoutMinutes": "45",
     "minimumNewIntervalMinutes": "1",
@@ -12,12 +12,14 @@
     "defaultOffset": "10400",
     "rematchTimeoutSeconds": "8000",
     "generatePPF": true,
-    "sotnVanillaBinPath": "../BountyHunterTool/'Castlevania - Symphony of the Night (USA) (Track 1).bin'",
-    "randoPath": "D:/SotN-Randomizer-master/",
-    "patchFolder": "D:/GithubDesktop/Repositories/speedrun-race-discord-bot/patches/",
-    "replaysFolder": "D:/GithubDesktop/Repositories/speedrun-race-discord-bot/replays/",
-    "ppfApplierPath": "../'ApplyPPF'/'Apply PPF'/apply_ppf.exe",
-    "bhGeneratorToolPath": "../BountyHunterTool/BountyHunter.exe",
+    "sotnVanillaBinPath": "E:/Backup/Randomizer/SotnRando/Vanilla/Game/Castlevania - Symphony of the Night (USA) (Track 1).bin",
+    "randoPath": "E:/Backup/Randomizer/SotN-Randomizer/",
+    "patchFolder": "E:/Backup/Randomizer/speedrun-race-discord-bot/patches",
+    "replaysFolder": "./replays/",
+    "ppfApplierPath": "./'Apply PPF'/'Apply PPF'/applypp3_vc.exe",
+    "bhGeneratorToolPath": "../BountyHunter_August7th2023b_CLI/BountyHunter.exe",
+    "apiUrl": "35.208.162.255",
+    "apiPort": "8080",
     "countdownFiles": [
         "../audio/countdown1.mp3",
         "../audio/countdown2.mp3",
@@ -26,48 +28,84 @@
     ],
     "categories": [
         {
-            "name": "Guarded OG",
-            "value": "Guarded-OG"
-        },
-        {
             "name": "Safe",
-            "value": "Safe"
+            "value": "safe"
         },
         {
             "name": "Casual",
-            "value": "Casual"
-        },
-        {
-            "name": "Nimble",
-            "value": "Nimble"
+            "value": "casual"
         },
         {
             "name": "Lycanthrope",
-            "value": "Lycanthrope"
+            "value": "lycanthrope"
         },
         {
-            "name": "Expedition",
-            "value": "Expedition"
+            "name": "Nimble",
+            "value": "nimble"
         },
         {
             "name": "Warlock",
-            "value": "Warlock"
+            "value": "warlock"
         },
         {
-            "name": "OG",
-            "value": "OG"
+            "name": "Crash Course",
+            "value": "crash-course"
         },
         {
-            "name": "Speedrun",
-            "value": "Speedrun"
+            "name": "Warlock",
+            "value": "warlock"
         },
         {
-            "name": "Bat master",
-            "value": "Bat-master"
+            "name": "Bounty Hunter",
+            "value": "bounty-hunter"
         },
         {
-            "name": "bingo",
+            "name": "Aperture",
+            "value": "aperture"
+        },
+        {
+            "name": "Magic Mirror",
+            "value": "magic-mirror"
+        },
+        {
+            "name": "Safe - Season 2",
+            "value": "stwosafe"
+        },
+        {
+            "name": "Bingo",
             "value": "bingo"
+        },
+        {
+            "name": "Leg Day",
+            "value": "leg-day"
+        },
+        {
+            "name": "First Castle",
+            "value": "first-castle"
+        },
+        {
+            "name": "Big Toss",
+            "value": "big-toss"
+        },
+        {
+            "name": "Lucky Sevens",
+            "value": "luckysevens"
+        },
+        {
+            "name": "Grand Tour",
+            "value": "grand-tour"
+        },
+        {
+            "name": "Skinwalker",
+            "value": "skinwalker"
+        },
+        {
+            "name": "Bounty Hunter - Hitman",
+            "value": "hitman"
+        },
+        {
+            "name": "Bounty Hunter - Target Confirmed",
+            "value": "bountyhuntertc"
         },
         {
             "name": "Custom",

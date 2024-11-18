@@ -10,6 +10,7 @@ const zipReplays = require('../common/zipReplays');
 const createBingosyncRoom = require('../common/createBingo.js');
 const Player = require('./player.js');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = class Race {
     constructor(client, audioPlayer) {
@@ -32,6 +33,8 @@ module.exports = class Race {
         this.ranked = true;
         this.message = null;
         this.replays = [];
+        this.referenceReplays = {};
+        this.raceId = uuidv4();
     }
 
     includes(id) {
@@ -165,8 +168,9 @@ module.exports = class Race {
         });
     }
 
-    addReplay(filename, user) {
-        this.replays.push(filename);
+    addReplay(fileurl, user) {
+        this.replays.push(fileurl);
+        this.referenceReplays[user.id] = fileurl;
         this.players.find(player => player.username === user.username).replaySubmitted = true;
     }
 
@@ -188,6 +192,14 @@ module.exports = class Race {
         }
         
         return true;
+    }
+
+    anyReplaysSubmitted(){
+        if (!this.finished || this.playersForfeited()) {
+            return false;
+        }
+
+        return this.players.some((element) => element.replaySubmitted);
     }
 
     setSeedName(name) {
@@ -256,7 +268,7 @@ module.exports = class Race {
         const buttons = new ActionRowBuilder()
             .addComponents(buttonComponents);
 
-        let raceFooter = 'Category: ' + this.category;        
+        let raceFooter = 'Category: ' + this.category + '\n' + "Race ID: " + this.raceId;
         const raceEmbed = new EmbedBuilder()
             .setColor(0x1f0733)
             .setTitle(((this.ranked ? 'RANKED \n' : '') + this.status))
@@ -339,13 +351,16 @@ module.exports = class Race {
     }
 
     end() {
-        if (this.ranked && !this.playersForfeited()) {
-            let adjustments = elo.resolveMatch(this.players, this.category);
-            for (let i = 0; i < this.players.length; i++) {
-                this.players[i].adjustment = adjustments[i];
-                data.setPlayerUsername(this.players[i].id, this.players[i].username);
-            }
-            updateLeaderboard(this.client, this.category);
+        
+        if (!this.playersForfeited()) {
+            let adjustments = elo.resolveMatch(this.players, this.category, this.ranked, this.raceId);
+            if(this.ranked){
+                for (let i = 0; i < this.players.length; i++) {
+                    this.players[i].adjustment = adjustments[i];
+                    data.setPlayerUsername(this.players[i].id, this.players[i].username);
+                }
+                updateLeaderboard(this.client, this.category);
+            }            
         }
 
         this.status = 'RACE FINISHED';
@@ -353,12 +368,6 @@ module.exports = class Race {
         this.finished = true;
         this.updateMessage();
         unlockVoiceChannel(this.client);
-
-        if (this.allReplaysSubmitted()) {
-            this.channel.then(channel => {
-                zipReplays(channel, this);
-            }).catch(console.error);
-        }
 
         let buttonComponents = [];
 
@@ -435,8 +444,18 @@ module.exports = class Race {
 
     updateMessage() {
         this.sortPlayers();
-        let output = '```';
+        let output = "";
+        if(this.anyReplaysSubmitted()){
+            output += `Replays:\n`;
+            this.players.forEach(player => {
+                if(player.replaySubmitted){
+                    let replayUrl = this.referenceReplays[player.id]
+                    output += `Player: ${player.username} - [Replay Link](${replayUrl}) \n`;
+                }
+            })
+        }
 
+        output += "```";
         for (let i = 0; i < this.players.length; i++) {
             output += '\n';
             output += (' ' + this.players[i].username.replace(/\W/gi, "")).padEnd(20, " ");
@@ -444,7 +463,7 @@ module.exports = class Race {
             if (this.players[i].time || this.players[i].forfeited) {
                 let rightCol = (this.players[i].forfeited) ? 'forfeited' : this.players[i].hours().toString().padStart(2, "0") + ':' + this.players[i].minutes().toString().padStart(2, "0") + ':' + this.players[i].seconds().toString().padStart(2, "0") + ' ';
                 if (this.players[i].replaySubmitted) {
-                    rightCol += ' (R)  ' 
+                    rightCol += ` (R)  `
                 } else {
                     rightCol += '      '
                 }
@@ -470,7 +489,7 @@ module.exports = class Race {
             .setColor(0x1f0733)
             .setTitle(((this.ranked ? 'RANKED ' : '') + this.status))
             .setDescription(output)
-            .setFooter({ text: 'Category: ' + this.category });
+            .setFooter({ text: 'Category: ' + this.category + '\n' + "Race ID: " + this.raceId });
 
         this.message.edit({ embeds: [raceEmbed] });
     }
