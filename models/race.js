@@ -6,7 +6,6 @@ const generatePPF = require('../common/generatePPF.js');
 const lockVoiceChannel = require('../common/lockVoiceChannel');
 const unlockVoiceChannel = require('../common/unlockVoiceChannel');
 const updateLeaderboard = require('../common/updateLeaderboard');
-const zipReplays = require('../common/zipReplays');
 const createBingosyncRoom = require('../common/createBingo.js');
 const Player = require('./player.js');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
@@ -215,16 +214,15 @@ module.exports = class Race {
         this.randomusic = !interaction.options.getBoolean('vanilla-music');
         unlockVoiceChannel(this.client);
 
-        let bingoData = null;
         if (category.includes("bingo")){
-            bingoData = createBingosyncRoom(this.client, bingoLockout, bingoPassword); 
+            createBingosyncRoom(this.client, bingoLockout, bingoPassword);
         }
         if (!category.includes('Custom')) {
             let seedData = seed(category.toLowerCase());
             this.seed = seedData;
             this.seedName = seedData.name;
             if (config.generatePPF) {
-                generatePPF(this.seed, this.seedName, raceChannel, category.toLowerCase(), tournament, interaction,this.randomusic,true );
+                generatePPF(this.seed, this.seedName, raceChannel, category.toLowerCase(), tournament, interaction,this.randomusic,true, this.raceId);
             }
         } else {
             var crypto = require("crypto");

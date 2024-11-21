@@ -1,6 +1,32 @@
 const config = require('../config.json');
 const cp = require('child_process');
 const fs = require('fs');
+const axios = require('axios');
+const FormData = require('form-data');
+
+
+async function sendFile(filepath, raceId, fileName) {
+    try {
+        // Create a FormData instance
+        const form = new FormData();
+
+        // Append the file
+        form.append('seed_file', fs.createReadStream(filepath), fileName);
+
+        // Use axios to send the form-data
+        await axios.post(
+            `http://${config.apiUrl}:${config.apiPort}/private/match_results/seed/${raceId}`, form, {
+                headers: {
+                    'Authorization': process.env.API_KEY,
+                    ...form.getHeaders(), // Set headers for multipart/form-data
+                },
+            });
+
+        console.log('Seed file uploaded successfully');
+    } catch (error) {
+        console.error('Error uploading file:', error.response?.data || error.message);
+    }
+}
 
 
 function sendReply(patchFilePath,patchFileName,output, channel, interaction,isRace) {
@@ -37,7 +63,7 @@ function sendErrorReply(interaction) {
     });
 }
 
-module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace) => {
+module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace, raceId) => {
     console.log(seedName);
     let patchFileName = catagory + "-" + seedName + ".ppf";
     let randoPath = config.randoPath;
@@ -95,6 +121,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
                 console.log(newlogs);
                 try {
                     sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
+                    sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
                 } catch{
                     await sendErrorReply(interaction);
                 }
@@ -103,6 +130,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
         else {
             try {
                 sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
+                sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
             } catch{
                 await sendErrorReply(interaction);
             }
