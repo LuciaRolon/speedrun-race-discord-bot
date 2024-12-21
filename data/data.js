@@ -29,7 +29,7 @@ function restApiCall(method, path, body = null) {
         if (res.statusCode >= 200 && res.statusCode < 300) {
             return JSON.parse(res.getBody('utf8')); // Return parsed JSON response
         } else {
-            console.error("Request failed with status:", res.statusCode);
+            console.error(`Request ${method} ${path} failed with status:`, res.statusCode);
             return null; // Return null for non-2xx status
         }
     } catch (error) {
@@ -42,7 +42,11 @@ function restApiCall(method, path, body = null) {
 function savePlayer(player) {
     let playerData = restApiCall("GET", `/user_by_id/${player.user_id}`);
     if (playerData !== null ) {
-        return restApiCall("PATCH", `/private/user`, player);
+        // Ensure something is being updated or else just return the player data.
+        if("user_id" in player && Object.keys(player).length > 1) {
+            return restApiCall("PATCH", `/private/user`, player);
+        }
+        return playerData;
     } else {
         return restApiCall("POST", `/private/user`, player)
     }
@@ -111,7 +115,11 @@ module.exports = {
         return (playerCategoryData.matches >= placementMatches);
     },
     getPlayerTwitch: function(id) {
-        return getPlayerById(id).twitch;
+        let player = getPlayerById(id);
+        if (player === null){
+            return null;
+        }
+        return player.twitch;
     },
     setPlayerTwitch: function(id, twitch) {
         savePlayer({ user_id: id, twitch: twitch });
@@ -120,7 +128,7 @@ module.exports = {
         savePlayer({ user_id: id, username: username });
     },
     getPlayerUsername: function(id) {
-        getPlayerById(id).username;
+        return getPlayerById(id).username;
     },
     getPlayerElo: function(id, category) {
         let playerRanked = getPlayerRankedData(id, category);

@@ -33,7 +33,7 @@ module.exports = class Race {
         this.message = null;
         this.replays = [];
         this.referenceReplays = {};
-        this.raceId = uuidv4();
+        this.raceId = null;
     }
 
     includes(id) {
@@ -521,6 +521,7 @@ module.exports = class Race {
         this.ranked = true;
         this.seedName = '';
         this.replays = [];
+        this.raceId = uuidv4();
     }
 
     close() {

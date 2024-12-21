@@ -13,6 +13,9 @@ module.exports = {
         ),
     async execute(interaction, client, race) {
         let replays = data.getReplays(interaction.options.getString('raceId'));
+        if(replays === null) {
+            await interaction.reply({content: "No replays found!", ephemeral: true});
+        }
         let output = "";
         Object.keys(replays).forEach(key => {
             output += `${key}: [Replay](${replays[key]})\n`;
