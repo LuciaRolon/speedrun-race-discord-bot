@@ -5,4 +5,5 @@ replays/
 .jshintrc
 countdown.mp3
 config.json
+data/players.json
 *.bin

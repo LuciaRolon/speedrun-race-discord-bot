@@ -15,8 +15,8 @@
       "matches": 4
     },
     "Custom": {
-      "elo": 1135,
-      "matches": 2
+      "elo": 1435,
+      "matches": 4
     }
   },
   {
@@ -126,8 +126,8 @@
       "matches": 29
     },
     "Custom": {
-      "elo": 885,
-      "matches": 24
+      "elo": 710,
+      "matches": 28
     },
     "leg-day": {
       "elo": 1095,
@@ -162,8 +162,8 @@
       "matches": 3
     },
     "lycanthrope": {
-      "elo": 860,
-      "matches": 1
+      "elo": 920,
+      "matches": 2
     },
     "warlock": {
       "elo": 950,
@@ -431,6 +431,14 @@
     "warlock": {
       "elo": 1050,
       "matches": 1
+    },
+    "Custom": {
+      "elo": 930,
+      "matches": 1
+    },
+    "lycanthrope": {
+      "elo": 935,
+      "matches": 1
     }
   },
   {
@@ -496,6 +504,10 @@
     "chaos-lite": {
       "elo": 800,
       "matches": 1
+    },
+    "Custom": {
+      "elo": 1255,
+      "matches": 1
     }
   },
   {
@@ -535,8 +547,8 @@
       "matches": 4
     },
     "Custom": {
-      "elo": 1140,
-      "matches": 99
+      "elo": 1180,
+      "matches": 105
     },
     "aperture": {
       "elo": 1070,
@@ -563,8 +575,8 @@
       "matches": 1
     },
     "boss-rush": {
-      "elo": 850,
-      "matches": 1
+      "elo": 815,
+      "matches": 2
     }
   },
   {
@@ -600,8 +612,8 @@
       "matches": 154
     },
     "Custom": {
-      "elo": 1395,
-      "matches": 106
+      "elo": 1315,
+      "matches": 111
     },
     "leg-day": {
       "elo": 955,
@@ -612,8 +624,8 @@
       "matches": 9
     },
     "lycanthrope": {
-      "elo": 990,
-      "matches": 15
+      "elo": 1070,
+      "matches": 16
     },
     "warlock": {
       "elo": 1145,
@@ -762,8 +774,8 @@
       "matches": 1
     },
     "Custom": {
-      "elo": 1380,
-      "matches": 33
+      "elo": 1415,
+      "matches": 38
     },
     "expedition": {
       "elo": 1000,
@@ -790,8 +802,8 @@
       "matches": 1
     },
     "boss-rush": {
-      "elo": 1150,
-      "matches": 3
+      "elo": 1170,
+      "matches": 4
     }
   },
   {
@@ -815,8 +827,8 @@
       "matches": 3
     },
     "lycanthrope": {
-      "elo": 790,
-      "matches": 3
+      "elo": 720,
+      "matches": 4
     },
     "safe": {
       "elo": 760,
@@ -985,7 +997,7 @@
     "twitch": "sugdenunderscore",
     "Custom": {
       "elo": 1365,
-      "matches": 23
+      "matches": 24
     },
     "leg-day": {
       "elo": 910,
@@ -1324,5 +1336,13 @@
       "matches": 1
     },
     "username": "jjcdrummer"
+  },
+  {
+    "id": "176927707307704321",
+    "Custom": {
+      "elo": 810,
+      "matches": 1
+    },
+    "username": "bobsagget"
   }
 ]
