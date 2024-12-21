@@ -51,7 +51,7 @@ module.exports = {
                         value: 'boss-rush',
                     },
                     {
-                        name: 'bounty-hunter',
+                        name: 'bountyhunter',
                         value: 'bountyhunter',
                     },
                     {

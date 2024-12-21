@@ -84,7 +84,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
 
     let logs = '';
     let newlogs = '';
-    let mapColor = "-m " + mapColors[Math.floor(Math.random() * Math.floor(mapColors.length - 1))]
+    // let mapColor = "-m " + mapColors[Math.floor(Math.random() * Math.floor(mapColors.length - 1))]
     let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName, "--race","-l"];
 
     if (!randoMusic && catagory !== "boss-rush" && catagory !== "bingo"){

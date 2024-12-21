@@ -24,7 +24,7 @@ module.exports = {
                         value: 'lycanthrope',
                     },
                     {
-                        name: 'Nimbre',
+                        name: 'Nimble',
                         value: 'nimble',
                     },
                     {
@@ -41,7 +41,7 @@ module.exports = {
                     },
                     {
                         name: 'Bounty Hunter',
-                        value: 'bounty-hunter',
+                        value: 'bountyhunter',
                     },
                     {
                         name: 'Aperture',
