@@ -1,7 +1,8 @@
 module.exports = {
     name: 'forfeit',
     async execute(interaction, client, race) {
+        await interaction.deferReply({ephemeral: true});
         race.forfeitPlayer(interaction.user);
-        interaction.deferUpdate().catch(console.error)
+        await interaction.editReply({ content: 'Thanks for participating!', ephemeral: true });
     }
 };

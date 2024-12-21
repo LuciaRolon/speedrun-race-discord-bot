@@ -3,6 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 const updateLeaderboard = require('../common/updateLeaderboard');
 const config = require('../config.json');
 const elo = require('../elo/elo.js');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -202,7 +203,7 @@ module.exports = {
             }
         }
 
-        let adjustments = elo.resolveMatch(players, category);
+        let adjustments = elo.resolveMatch(players, category, true, uuidv4());
         console.log(adjustments);
         updateLeaderboard(client, category);
 

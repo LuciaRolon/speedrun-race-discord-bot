@@ -1,10 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const downloadReplay = require('../common/downloadReplay');
-const zipReplays = require('../common/zipReplays');
+const FormData = require('form-data');
 const config = require('../config.json');
 const fs = require('fs');
 const maxFileSize = 35000;
 const replayFileExtension = ".sotnr";
+const axios = require('axios');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,6 +16,7 @@ module.exports = {
             .setRequired(true)
         ),
     async execute(interaction, client, race) {
+        await interaction.deferReply({ephemeral: true});
         if (!race.includes(interaction.user.id)) {
             await interaction.reply({ content: `Can't submit replays if you are not in the race!`, ephemeral: true });
             return;
@@ -38,38 +39,33 @@ module.exports = {
             return;
         }
 
-        if (race.seedName === "custom") {
-            let name = replay.name.replace(replayFileExtension,"");
-            let preset = "";
-            let seedName = "";
+        try {
+            // Download the file from the attachment URL
+            const response = await fetch(replay.url);
+            const arrayBuffer = await response.arrayBuffer(); // Convert to binary data
+            const buffer = Buffer.from(arrayBuffer);  // Convert to Buffer for Node.js compatibility
 
-            let matchPreset = name.match(/(ADVENTURE|BAT-MASTER|CASUAL|EMPTY-HAND|EXPEDITION|GEM-FARMER|GLITCH|GUARDED-OG|LYCANTHROPE|NIMBLE|OG|SAFE|SCAVENGER|SPEEDRUN|THIRD-CASTLE|WARLOCK|CUSTOM)/);
-            
-            if (matchPreset) {
-                preset = matchPreset[1];
-            }
-        
-            name = name.replace(preset, '');
-            
-            let match = name.match(/([a-zA-Z0-9()]{5,50})([-]){1}([a-zA-Z0-9 -]{0,30})$/i);
-            if (match && match.length == 4) {
-                seedName = match[1];
-            }
+            // Create a FormData object and append the file
+            const formData = new FormData();
+            formData.append('replay_file', buffer, replay.name); // Add file with original name
 
-            race.setSeedName(seedName);
+            // Send the file to the API
+            const apiResponse = await axios.post(
+                `http://${config.apiUrl}:${config.apiPort}/private/match_results/replay/${race.raceId}/${interaction.user.id}`, formData, {
+                headers: {
+                    'Authorization': process.env.API_KEY,
+                    ...formData.getHeaders(), // Set headers for multipart/form-data
+                },
+            });
+            const replayUrl = apiResponse.data.replay_url;
+            race.addReplay(replayUrl, interaction.user);
+
+            await interaction.editReply({ content: 'Replay submitted!' });
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            await interaction.editReply({ content: 'Error uploading replay.' });
         }
 
-        if (fs.existsSync(config.replaysFolder + "/" + race.seedName + "/" + replay.name)) {
-            await interaction.reply({ content: `Invalid. File already submitted!`, ephemeral: true });
-            return;
-        }
-        await interaction.reply({ content: 'Replay submitted!', ephemeral: true });
-        await downloadReplay(replay.url, replay.name, race, interaction.user);
-
-        if (race.allReplaysSubmitted()) {
-            zipReplays(interaction.channel, race);
-        }
-        
         race.update();
     },
 };

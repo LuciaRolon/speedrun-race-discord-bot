@@ -12,81 +12,89 @@ module.exports = {
                 .setRequired(true)
                 .addChoices(
                     {
-                        name: 'guarded-og',
-                        value: 'guarded-og',
-                    },
-                    {
-                        name: 'safe',
+                        name: 'Safe',
                         value: 'safe',
                     },
                     {
-                        name: 'casual',
+                        name: 'Casual',
                         value: 'casual',
                     },
                     {
-                        name: 'nimble',
-                        value: 'nimble',
-                    },
-                    {
-                        name: 'lycanthrope',
+                        name: 'Lycanthrope',
                         value: 'lycanthrope',
                     },
                     {
-                        name: 'expedition',
-                        value: 'expedition',
+                        name: 'Nimbre',
+                        value: 'nimble',
                     },
                     {
-                        name: 'warlock',
+                        name: 'Warlock',
                         value: 'warlock',
                     },
                     {
-                        name: 'og',
-                        value: 'og',
-                    },
-                    {
-                        name: 'bat-master',
-                        value: 'bat-master',
-                    },
-                    {
-                        name: 'boss-rush',
-                        value: 'boss-rush',
-                    },
-                    {
-                        name: 'bounty-hunter',
-                        value: 'bountyhunter',
-                    },
-                    {
-                        name: 'aperture',
-                        value: 'aperture',
-                    },
-                    {
-                        name: 'big-toss',
-                        value: 'big-toss',
-                    },
-                    {
-                        name: 'crash-course',
+                        name: 'Crash Course',
                         value: 'crash-course',
                     },
                     {
-                        name: 'leg-day',
-                        value: 'leg-day',
+                        name: 'Warlock',
+                        value: 'warlock',
                     },
                     {
-                        name: 'beyond',
-                        value: 'beyond',
+                        name: 'Bounty Hunter',
+                        value: 'bounty-hunter',
                     },
                     {
-                        name: 'magic-mirror',
+                        name: 'Aperture',
+                        value: 'aperture',
+                    },
+                    {
+                        name: 'Magic Mirror',
                         value: 'magic-mirror',
                     },
                     {
-                        name: 'bingo',
+                        name: 'Safe - Season 2',
+                        value: 'stwosafe',
+                    },
+                    {
+                        name: 'Bingo',
                         value: 'bingo',
+                    },
+                    {
+                        name: 'Leg Day',
+                        value: 'leg-day',
+                    },
+                    {
+                        name: 'First Castle',
+                        value: 'first-castle',
+                    },
+                    {
+                        name: 'Big Toss',
+                        value: 'big-toss',
+                    },
+                    {
+                        name: 'Lucky Sevens',
+                        value: 'luckysevens',
+                    },
+                    {
+                        name: 'Grand Tour',
+                        value: 'grand-tour',
+                    },
+                    {
+                        name: 'Skinwalker',
+                        value: 'skinwalker',
+                    },
+                    {
+                        name: 'Bounty Hunter - Hitman',
+                        value: 'hitman',
+                    },
+                    {
+                        name: 'Bounty Hunter - Target Confirmed',
+                        value: 'bountyhuntertc',
                     },
                     {
                         name: 'Custom',
                         value: 'Custom',
-                    },
+                    }
                 ))
         .addBooleanOption(option =>
             option.setName('tournament')
@@ -109,16 +117,14 @@ module.exports = {
                 .setDescription('Password for the Bingo Room. If not given, a random password will be generated and shared.')
                 .setRequired(false)),
     async execute(interaction, client, race) {
+        await interaction.deferReply({ ephemeral: true });
         if ((race.started || !race.finished) && race.tournament && !interaction.member.roles.cache.find(x => x.id === config.refereeRoleId)) {
             await interaction.reply({ content: 'Only referees can close tournament races!', ephemeral: true });
             return;
         }
-        if (!race.allReplaysSubmitted() && race.replays.lenght > 1) {
-            zipReplays(interaction.channel, race);
-        }
         let raceChannel = client.guilds.cache.first(1)[0].channels;
 
         race.initiate(interaction.options.getString('category'), interaction.options.getBoolean('unranked'), interaction.options.getBoolean('tournament'), interaction, raceChannel, interaction.options.getBoolean('lockout'), interaction.options.getString('password'));
-        await interaction.deferReply({ ephemeral: true });
+
     },
 };

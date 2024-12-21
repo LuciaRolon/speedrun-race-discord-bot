@@ -12,6 +12,8 @@
     "defaultOffset": "10400",
     "rematchTimeoutSeconds": "8000",
     "generatePPF": true,
+    "apiUrl": "35.208.162.255",
+    "apiPort": "8080",
     "sotnVanillaBinPath": "../BountyHunterTool/'Castlevania - Symphony of the Night (USA) (Track 1).bin'",
     "randoPath": "D:/Github Desktop/Repositories/SotN-Randomizer/",
     "patchFolder": "D:/GithubDesktop/Repositories/speedrun-race-discord-bot/patches/",
@@ -26,48 +28,84 @@
     ],
     "categories": [
         {
-            "name": "Guarded OG",
-            "value": "Guarded-OG"
-        },
-        {
             "name": "Safe",
-            "value": "Safe"
+            "value": "safe"
         },
         {
             "name": "Casual",
-            "value": "Casual"
-        },
-        {
-            "name": "Nimble",
-            "value": "Nimble"
+            "value": "casual"
         },
         {
             "name": "Lycanthrope",
-            "value": "Lycanthrope"
+            "value": "lycanthrope"
         },
         {
-            "name": "Expedition",
-            "value": "Expedition"
+            "name": "Nimble",
+            "value": "nimble"
         },
         {
             "name": "Warlock",
-            "value": "Warlock"
+            "value": "warlock"
         },
         {
-            "name": "OG",
-            "value": "OG"
+            "name": "Crash Course",
+            "value": "crash-course"
         },
         {
-            "name": "Speedrun",
-            "value": "Speedrun"
+            "name": "Warlock",
+            "value": "warlock"
         },
         {
-            "name": "Bat master",
-            "value": "Bat-master"
+            "name": "Bounty Hunter",
+            "value": "bounty-hunter"
         },
         {
-            "name": "bingo",
+            "name": "Aperture",
+            "value": "aperture"
+        },
+        {
+            "name": "Magic Mirror",
+            "value": "magic-mirror"
+        },
+        {
+            "name": "Safe - Season 2",
+            "value": "stwosafe"
+        },
+        {
+            "name": "Bingo",
             "value": "bingo"
+        },
+        {
+            "name": "Leg Day",
+            "value": "leg-day"
+        },
+        {
+            "name": "First Castle",
+            "value": "first-castle"
+        },
+        {
+            "name": "Big Toss",
+            "value": "big-toss"
+        },
+        {
+            "name": "Lucky Sevens",
+            "value": "luckysevens"
+        },
+        {
+            "name": "Grand Tour",
+            "value": "grand-tour"
+        },
+        {
+            "name": "Skinwalker",
+            "value": "skinwalker"
+        },
+        {
+            "name": "Bounty Hunter - Hitman",
+            "value": "hitman"
+        },
+        {
+            "name": "Bounty Hunter - Target Confirmed",
+            "value": "bountyhuntertc"
         },
         {
             "name": "Custom",

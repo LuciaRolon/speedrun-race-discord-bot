@@ -5,11 +5,15 @@
         "discord-api-types": "*",
         "discord.js": "^14.15.2",
         "dotenv": "^10.0.0",
-        "ffmpeg-static": "^5.1.0",
+        "ffmpeg-static": "^5.2.0",
         "jszip": "^3.10.1",
         "libsodium-wrappers": "^0.7.9",
         "nodemon": "^2.0.12",
-        "simple-git": "^3.5.0"
+        "simple-git": "^3.5.0",
+        "sync-request": "6.1.0",
+        "uuid": "^10.0.0",
+        "form-data": "3.0.2",
+        "axios": "^1.7.7"
     },
     "scripts": {
         "start": "node index.js",

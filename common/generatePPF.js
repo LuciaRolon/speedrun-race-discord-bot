@@ -1,22 +1,34 @@
 const config = require('../config.json');
 const cp = require('child_process');
 const fs = require('fs');
-const simpleGit = require('simple-git');
-const SOTN_IO_SUPPORTED_PRESETS = 
-[
-    "guarded-og",
-    "safe",
-    "casual",
-    "nimble",
-    "lycanthrope",
-    "expedition",
-    "warlock",
-    "adventure",
-    "og",
-    "speedrun",
-    "bat-master",
-    "scavenger"
-];
+const axios = require('axios');
+const FormData = require('form-data');
+
+
+async function sendFile(filepath, raceId, fileName) {
+    try {
+        // Create a FormData instance
+        const form = new FormData();
+
+        // Append the file
+        form.append('seed_file', fs.createReadStream(filepath), fileName);
+
+        // Use axios to send the form-data
+        await axios.post(
+            `http://${config.apiUrl}:${config.apiPort}/private/match_results/seed/${raceId}`, form, {
+                headers: {
+                    'Authorization': process.env.API_KEY,
+                    ...form.getHeaders(), // Set headers for multipart/form-data
+                },
+            });
+
+        console.log('Seed file uploaded successfully');
+    } catch (error) {
+        console.error('Error uploading file:', error.response?.data || error.message);
+    }
+}
+
+
 const mapColors = [
     "u",
     "r",
@@ -63,15 +75,10 @@ function sendErrorReply(interaction) {
     });
 }
 
-module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace) => {
+module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace, raceId) => {
     console.log(seedName);
     let patchFileName = catagory + "-" + seedName + ".ppf";
     let randoPath = config.randoPath;
-
-
-    const git = simpleGit({
-        baseDir: randoPath
-    });
 
     console.log("generating seed...");
 
@@ -94,14 +101,8 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
     }
     console.log(randoPath + "randomize", args);
     let randomizer;
-    if(SOTN_IO_SUPPORTED_PRESETS.includes(catagory)){
-        console.log(config.patchFolder + patchFileName);
-        console.log(seed);
-        randomizer = cp.fork(randoPath + "randomize", ["-o", config.patchFolder + patchFileName, seed.link], { cwd: randoPath, stdio: ['ignore', 'pipe', 'pipe', 'ipc'] });
-    }
-    else{
-        randomizer = cp.fork(randoPath + "randomize", args, { cwd: randoPath, stdio: ['ignore', 'pipe', 'pipe', 'ipc'] });
-    }
+    randomizer = cp.fork(randoPath + "randomize", args, { cwd: randoPath, stdio: ['ignore', 'pipe', 'pipe', 'ipc'] });
+
 
     randomizer.stdout.on('data', (outdata) => {
         logs += outdata;
@@ -120,8 +121,14 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
         }
         output+= 'https://ppf.sotn.io/'
         output += '\n Starting equipment: ||' + items + '||';
-        if(catagory === "bountyhunter" || catagory === "chaos" || catagory === "chaos-lite"){
-            let ppfApplier = cp.exec("D:/GithubDesktop/Repositories/speedrun-race-discord-bot/scripts/genBH.sh " + config.sotnVanillaBinPath + " " + config.ppfApplierPath + " " +config.patchFolder + patchFileName + " " +config.bhGeneratorToolPath);
+        if(catagory === "bountyhunter" || catagory === "chaos" || catagory === "chaos-lite" || catagory === "bountyhuntertc" || catagory === "hitman"){
+            let ars = "-input";
+            if(catagory === "bountyhuntertc"){
+                ars = "-tconf";
+            }else if(catagory === "hitman"){
+                ars = "-hitmn";
+            }
+            let ppfApplier = cp.exec("D:/GithubDesktop/Repositories/speedrun-race-discord-bot/scripts/genBH.sh " + config.sotnVanillaBinPath + " " + config.ppfApplierPath + " " +config.patchFolder + patchFileName + " " + config.bhGeneratorToolPath + " " + ars);
             ppfApplier.stderr.on('data', (outdata) => {
                 newlogs += outdata;
             });
@@ -129,6 +136,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
                 console.log(newlogs);
                 try {
                     sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
+                    sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
                 } catch{
                     await sendErrorReply(interaction);
                 }
@@ -137,6 +145,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
         else {
             try {
                 sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
+                sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
             } catch{
                 await sendErrorReply(interaction);
             }

@@ -1,20 +1,29 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const zipReplays = require('../common/zipReplays');
+const data = require('../data/data.js');
+const {EmbedBuilder} = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('replays')
-        .setDescription(`Generate a zip of all the submitted replays for this race.`),
+        .setDescription(`Get all replays for a given race ID.`)
+        .addStringOption(option =>
+            option.setName('race')
+                .setDescription('ID of the Race to retrieve replays from')
+                .setRequired(true)
+        ),
     async execute(interaction, client, race) {
-        if (!race.finished || race.seedName == "") {
-            await interaction.reply({ content: `Race has to be finished!`, ephemeral: true });
-            return;
+        let replays = data.getReplays(interaction.options.getString('raceId'));
+        if(replays === null) {
+            await interaction.reply({content: "No replays found!", ephemeral: true});
         }
-        if (race.replays.lenght < 2) {
-            await interaction.reply({ content: `At least 2 replays need to be submitted.`, ephemeral: true });
-            return;
-        }
-        await interaction.reply({ content: 'Zip generated!', ephemeral: true });
-        zipReplays(interaction.channel, race);
+        let output = "";
+        Object.keys(replays).forEach(key => {
+            output += `${key}: [Replay](${replays[key]})\n`;
+        });
+        const result = new EmbedBuilder()
+            .setColor(0x1f0733)
+            .setTitle(`Replays for Race ${interaction.options.getString('raceId')}`)
+            .setDescription(output)
+        await interaction.reply({ embeds: [result], ephemeral: true });
     },
 };
