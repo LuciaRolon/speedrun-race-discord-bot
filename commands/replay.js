@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const FormData = require('form-data');
 const config = require('../config.json');
-const fs = require('fs');
 const maxFileSize = 35000;
 const replayFileExtension = ".sotnr";
 const axios = require('axios');
@@ -18,24 +17,24 @@ module.exports = {
     async execute(interaction, client, race) {
         await interaction.deferReply({ephemeral: true});
         if (!race.includes(interaction.user.id)) {
-            await interaction.reply({ content: `Can't submit replays if you are not in the race!`, ephemeral: true });
+            await interaction.editReply({ content: `Can't submit replays if you are not in the race!`});
             return;
         }
 
         if (!race.playerHasFinished(interaction.user)) {
-            await interaction.reply({ content: `Can't submit replays if you haven't finished the race!`, ephemeral: true });
+            await interaction.editReply({ content: `Can't submit replays if you haven't finished the race!`});
             return;
         }
 
         let replay = interaction.options.getAttachment('replay');
 
         if (replay.size > maxFileSize) {
-            await interaction.reply({ content: `File size was too large!`, ephemeral: true });
+            await interaction.editReply({ content: `File size was too large!`});
             return;
         }
 
         if (!replay.name.endsWith(replayFileExtension)) {
-            await interaction.reply({ content: `Invalid file type!`, ephemeral: true });
+            await interaction.editReply({ content: `Invalid file type!`});
             return;
         }
 
