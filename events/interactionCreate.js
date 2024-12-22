@@ -7,7 +7,11 @@ module.exports = {
                 await client.commands.get(interaction.commandName).execute(interaction, client, race);
             } catch (error) {
                 console.error(error);
-                await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+                if(!interaction.replied){
+                    await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+                }else{
+                    await interaction.editReply({ content: 'There was an error while executing this command!'});
+                }
             }
         }
 
