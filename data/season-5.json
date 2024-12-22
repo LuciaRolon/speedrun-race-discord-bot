@@ -1,0 +1,1738 @@
+[
+  {
+    "username": "TalicZealot",
+    "id": "99230602464628736"
+  },
+  {
+    "username": "dr4gonblitz",
+    "id": "114785502850187270",
+    "beyond": {
+      "elo": 1120,
+      "matches": 2
+    },
+    "magic-mirror": {
+      "elo": 1225,
+      "matches": 4
+    },
+    "Custom": {
+      "elo": 1620,
+      "matches": 6
+    },
+    "bingo": {
+      "elo": 905,
+      "matches": 3
+    }
+  },
+  {
+    "username": "Stew",
+    "id": "115655542617145352",
+    "twitch": "ssbstew"
+  },
+  {
+    "username": "diagongdx",
+    "id": "259736995994140672",
+    "twitch": "Diagongdx",
+    "safe": {
+      "elo": 1210,
+      "matches": 1
+    },
+    "speedrun": {
+      "elo": 1100,
+      "matches": 1
+    },
+    "bat-master": {
+      "elo": 895,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 740,
+      "matches": 1
+    }
+  },
+  {
+    "username": "asdheyb",
+    "id": "361628571610906624",
+    "bountyhunter": {
+      "elo": 1195,
+      "matches": 2
+    },
+    "crash-course": {
+      "elo": 1115,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1120,
+      "matches": 2
+    },
+    "lycanthrope": {
+      "elo": 990,
+      "matches": 1
+    }
+  },
+  {
+    "username": ".dinnerdog",
+    "id": "724749246431101089",
+    "twitch": "dinnerdog",
+    "bountyhunter": {
+      "elo": 1515,
+      "matches": 47
+    },
+    "safe": {
+      "elo": 1030,
+      "matches": 6
+    },
+    "lycanthrope": {
+      "elo": 1610,
+      "matches": 6
+    },
+    "nimble": {
+      "elo": 1330,
+      "matches": 5
+    },
+    "magic-mirror": {
+      "elo": 805,
+      "matches": 1
+    },
+    "guarded-og": {
+      "elo": 1205,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1055,
+      "matches": 3
+    },
+    "leg-day": {
+      "elo": 820,
+      "matches": 1
+    },
+    "warlock": {
+      "elo": 1075,
+      "matches": 1
+    }
+  },
+  {
+    "username": "chrisaegrimm",
+    "id": "425732685714161675"
+  },
+  {
+    "username": "blackfox42",
+    "id": "163471516065988608",
+    "twitch": "blackfox424",
+    "bountyhunter": {
+      "elo": 775,
+      "matches": 6
+    }
+  },
+  {
+    "username": "sin_pyro",
+    "id": "177474349526155266",
+    "twitch": "sin_pyro"
+  },
+  {
+    "username": ".sestren",
+    "id": "123976690945884161",
+    "twitch": "sestrenexsis"
+  },
+  {
+    "username": "Danozuke",
+    "id": "183020263879868417"
+  },
+  {
+    "username": "Z3R0L1M1T",
+    "id": "574057116650700803"
+  },
+  {
+    "username": "Nijoja",
+    "id": "228668983975477251"
+  },
+  {
+    "username": "eldri7ch",
+    "id": "104994192576544768",
+    "twitch": "eldri7ch",
+    "bountyhunter": {
+      "elo": 865,
+      "matches": 30
+    },
+    "Custom": {
+      "elo": 830,
+      "matches": 59
+    },
+    "leg-day": {
+      "elo": 1080,
+      "matches": 3
+    },
+    "big-toss": {
+      "elo": 950,
+      "matches": 4
+    },
+    "chaos-lite": {
+      "elo": 970,
+      "matches": 4
+    },
+    "speedrun": {
+      "elo": 800,
+      "matches": 1
+    },
+    "bat-master": {
+      "elo": 795,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 945,
+      "matches": 7
+    },
+    "beyond": {
+      "elo": 1015,
+      "matches": 3
+    },
+    "crash-course": {
+      "elo": 1075,
+      "matches": 3
+    },
+    "lycanthrope": {
+      "elo": 795,
+      "matches": 3
+    },
+    "warlock": {
+      "elo": 950,
+      "matches": 1
+    },
+    "guarded-og": {
+      "elo": 635,
+      "matches": 2
+    },
+    "aperture": {
+      "elo": 815,
+      "matches": 1
+    },
+    "nimble": {
+      "elo": 1065,
+      "matches": 1
+    }
+  },
+  {
+    "username": "ggchucksy",
+    "id": "203453181236215808",
+    "bountyhunter": {
+      "elo": 485,
+      "matches": 6
+    },
+    "casual": {
+      "elo": 950,
+      "matches": 1
+    }
+  },
+  {
+    "username": "compacta_d",
+    "id": "273536754466816000",
+    "Custom": {
+      "elo": 1050,
+      "matches": 1
+    }
+  },
+  {
+    "username": "superds",
+    "id": "281602836784218112",
+    "twitch": "superds_1",
+    "bountyhunter": {
+      "elo": 1310,
+      "matches": 22
+    }
+  },
+  {
+    "username": "50keyz",
+    "id": "269646976704839680"
+  },
+  {
+    "username": "countcranberry",
+    "id": "228716045186105344",
+    "twitch": "countcranberry",
+    "bountyhunter": {
+      "elo": 930,
+      "matches": 22
+    }
+  },
+  {
+    "username": "Dylicious",
+    "twitch": "dylicious1364",
+    "id": "270740466155257856"
+  },
+  {
+    "username": "skr1mps",
+    "id": "255827780388913153",
+    "twitch": "skr1mps",
+    "bountyhunter": {
+      "elo": 1335,
+      "matches": 19
+    },
+    "lycanthrope": {
+      "elo": 1390,
+      "matches": 3
+    },
+    "warlock": {
+      "elo": 1150,
+      "matches": 1
+    },
+    "safe": {
+      "elo": 1030,
+      "matches": 4
+    },
+    "magic-mirror": {
+      "elo": 1425,
+      "matches": 16
+    },
+    "Custom": {
+      "elo": 1095,
+      "matches": 11
+    },
+    "beyond": {
+      "elo": 990,
+      "matches": 2
+    },
+    "nimble": {
+      "elo": 1030,
+      "matches": 1
+    },
+    "leg-day": {
+      "elo": 960,
+      "matches": 1
+    },
+    "expedition": {
+      "elo": 790,
+      "matches": 2
+    }
+  },
+  {
+    "username": "vaevictusbr",
+    "twitch": "vaevictusbr",
+    "id": "193524233865920512",
+    "bountyhunter": {
+      "elo": 1090,
+      "matches": 50
+    }
+  },
+  {
+    "username": "morgiliath",
+    "id": "284499763112443914",
+    "bountyhunter": {
+      "elo": 980,
+      "matches": 1
+    }
+  },
+  {
+    "username": "chaosvania",
+    "twitch": "rj_chaos",
+    "id": "1037361743850115142"
+  },
+  {
+    "username": "castlefreeland",
+    "twitch": "castlefreeland",
+    "id": "225405208174395392",
+    "bountyhunter": {
+      "elo": 980,
+      "matches": 36
+    },
+    "lycanthrope": {
+      "elo": 1050,
+      "matches": 2
+    },
+    "bat-master": {
+      "elo": 1045,
+      "matches": 2
+    },
+    "guarded-og": {
+      "elo": 1050,
+      "matches": 1
+    },
+    "aperture": {
+      "elo": 1155,
+      "matches": 1
+    },
+    "nimble": {
+      "elo": 890,
+      "matches": 2
+    },
+    "leg-day": {
+      "elo": 840,
+      "matches": 3
+    },
+    "og": {
+      "elo": 950,
+      "matches": 1
+    },
+    "chaos-lite": {
+      "elo": 1070,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 970,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1145,
+      "matches": 1
+    }
+  },
+  {
+    "username": "SaintVonJester",
+    "twitch": "saintvonjester",
+    "id": "112013344449265664"
+  },
+  {
+    "username": "Raxphiel",
+    "twitch": "Raxphiel",
+    "id": "158324813037830144"
+  },
+  {
+    "username": "Kotone",
+    "id": "716778029921206282",
+    "twitch": "Rosefell12"
+  },
+  {
+    "username": "vaernos",
+    "twitch": "vaernos",
+    "id": "251547093154529281",
+    "bountyhunter": {
+      "elo": 800,
+      "matches": 7
+    },
+    "leg-day": {
+      "elo": 900,
+      "matches": 1
+    }
+  },
+  {
+    "username": "Rosefell",
+    "twitch": "rosefell12",
+    "id": "924056332544405536"
+  },
+  {
+    "username": "jammerlammer",
+    "id": "83901311518507008",
+    "twitch": "jammerlamm",
+    "bountyhunter": {
+      "elo": 820,
+      "matches": 25
+    },
+    "leg-day": {
+      "elo": 1050,
+      "matches": 1
+    },
+    "lycanthrope": {
+      "elo": 1275,
+      "matches": 2
+    },
+    "big-toss": {
+      "elo": 850,
+      "matches": 1
+    },
+    "chaos-lite": {
+      "elo": 800,
+      "matches": 1
+    },
+    "nimble": {
+      "elo": 1235,
+      "matches": 2
+    }
+  },
+  {
+    "username": "mt_fun",
+    "id": "178992162841559040",
+    "Custom": {
+      "elo": 950,
+      "matches": 1
+    },
+    "leg-day": {
+      "elo": 1255,
+      "matches": 2
+    },
+    "bat-master": {
+      "elo": 1310,
+      "matches": 1
+    }
+  },
+  {
+    "username": "jupiterclimb",
+    "id": "568111139830104076"
+  },
+  {
+    "username": "fire1520",
+    "id": "130864133473173504"
+  },
+  {
+    "username": "terajuice",
+    "id": "685636171681759356"
+  },
+  {
+    "username": "bar_keep",
+    "id": "224251154287034368"
+  },
+  {
+    "username": "mrrazzio",
+    "twitch": "mrrazzio",
+    "id": "504296925357670412",
+    "bountyhunter": {
+      "elo": 1285,
+      "matches": 33
+    }
+  },
+  {
+    "username": "buck161",
+    "id": "268190121642164224"
+  },
+  {
+    "username": "the__swarm",
+    "id": "165950520190566400",
+    "twitch": "the_swarm",
+    "bountyhunter": {
+      "elo": 1225,
+      "matches": 133
+    },
+    "nimble": {
+      "elo": 820,
+      "matches": 2
+    },
+    "safe": {
+      "elo": 1140,
+      "matches": 1
+    },
+    "warlock": {
+      "elo": 1050,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1285,
+      "matches": 4
+    },
+    "lycanthrope": {
+      "elo": 935,
+      "matches": 1
+    }
+  },
+  {
+    "username": "refinedhornet",
+    "id": "276222379175313408",
+    "bountyhunter": {
+      "elo": 1010,
+      "matches": 11
+    },
+    "Custom": {
+      "elo": 1105,
+      "matches": 7
+    },
+    "beyond": {
+      "elo": 1135,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 1050,
+      "matches": 1
+    }
+  },
+  {
+    "username": "gods666thchild",
+    "id": "374400995301654529",
+    "bountyhunter": {
+      "elo": 1185,
+      "matches": 15
+    }
+  },
+  {
+    "username": "sup3rdude",
+    "twitch": "SD404",
+    "id": "288865589873737729"
+  },
+  {
+    "username": "doozyzood",
+    "id": "777312183449026561",
+    "bountyhunter": {
+      "elo": 605,
+      "matches": 7
+    },
+    "speedrun": {
+      "elo": 1000,
+      "matches": 1
+    },
+    "warlock": {
+      "elo": 935,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1035,
+      "matches": 1
+    }
+  },
+  {
+    "username": "matheusdegiovanni",
+    "id": "950914588579344454",
+    "bountyhunter": {
+      "elo": 1385,
+      "matches": 38
+    },
+    "chaos-lite": {
+      "elo": 800,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1535,
+      "matches": 5
+    },
+    "bingo": {
+      "elo": 1245,
+      "matches": 12
+    },
+    "safe": {
+      "elo": 1045,
+      "matches": 1
+    }
+  },
+  {
+    "username": "renantrl",
+    "id": "622787063435231281",
+    "bountyhunter": {
+      "elo": 1435,
+      "matches": 228
+    },
+    "twitch": "renantrl1",
+    "lycanthrope": {
+      "elo": 1315,
+      "matches": 21
+    },
+    "warlock": {
+      "elo": 1110,
+      "matches": 10
+    },
+    "beyond": {
+      "elo": 1405,
+      "matches": 5
+    },
+    "leg-day": {
+      "elo": 960,
+      "matches": 2
+    },
+    "nimble": {
+      "elo": 1095,
+      "matches": 16
+    },
+    "safe": {
+      "elo": 1180,
+      "matches": 16
+    },
+    "chaos-lite": {
+      "elo": 1220,
+      "matches": 4
+    },
+    "Custom": {
+      "elo": 1180,
+      "matches": 167
+    },
+    "aperture": {
+      "elo": 1300,
+      "matches": 7
+    },
+    "bat-master": {
+      "elo": 1045,
+      "matches": 2
+    },
+    "speedrun": {
+      "elo": 1200,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 1285,
+      "matches": 37
+    },
+    "big-toss": {
+      "elo": 1140,
+      "matches": 2
+    },
+    "crash-course": {
+      "elo": 900,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 815,
+      "matches": 2
+    },
+    "guarded-og": {
+      "elo": 925,
+      "matches": 2
+    },
+    "casual": {
+      "elo": 1050,
+      "matches": 1
+    },
+    "expedition": {
+      "elo": 1245,
+      "matches": 1
+    }
+  },
+  {
+    "username": "thecalvitium",
+    "id": "519694614509125634",
+    "bountyhunter": {
+      "elo": 965,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 935,
+      "matches": 1
+    }
+  },
+  {
+    "username": "darkfalzjoker",
+    "id": "437635862855942154",
+    "Custom": {
+      "elo": 1040,
+      "matches": 8
+    },
+    "nimble": {
+      "elo": 1180,
+      "matches": 2
+    },
+    "lycanthrope": {
+      "elo": 1150,
+      "matches": 2
+    },
+    "guarded-og": {
+      "elo": 990,
+      "matches": 1
+    }
+  },
+  {
+    "username": "elpinchelack",
+    "id": "117814333605412867",
+    "bountyhunter": {
+      "elo": 595,
+      "matches": 9
+    }
+  },
+  {
+    "username": "crazy4blades",
+    "id": "141362746389168128",
+    "twitch": "crazy4bladestv",
+    "bountyhunter": {
+      "elo": 1095,
+      "matches": 157
+    },
+    "Custom": {
+      "elo": 1305,
+      "matches": 176
+    },
+    "leg-day": {
+      "elo": 1095,
+      "matches": 6
+    },
+    "nimble": {
+      "elo": 745,
+      "matches": 17
+    },
+    "lycanthrope": {
+      "elo": 930,
+      "matches": 27
+    },
+    "warlock": {
+      "elo": 870,
+      "matches": 8
+    },
+    "beyond": {
+      "elo": 940,
+      "matches": 5
+    },
+    "safe": {
+      "elo": 760,
+      "matches": 16
+    },
+    "big-toss": {
+      "elo": 880,
+      "matches": 4
+    },
+    "chaos-lite": {
+      "elo": 1210,
+      "matches": 4
+    },
+    "aperture": {
+      "elo": 1110,
+      "matches": 10
+    },
+    "bat-master": {
+      "elo": 1145,
+      "matches": 6
+    },
+    "expedition": {
+      "elo": 665,
+      "matches": 3
+    },
+    "guarded-og": {
+      "elo": 1150,
+      "matches": 3
+    },
+    "speedrun": {
+      "elo": 900,
+      "matches": 1
+    },
+    "og": {
+      "elo": 1050,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 980,
+      "matches": 37
+    },
+    "crash-course": {
+      "elo": 1090,
+      "matches": 2
+    },
+    "boss-rush": {
+      "elo": 1135,
+      "matches": 3
+    },
+    "bingo": {
+      "elo": 925,
+      "matches": 8
+    },
+    "casual": {
+      "elo": 1050,
+      "matches": 1
+    }
+  },
+  {
+    "id": "1139388770899214356",
+    "username": "jupiterclimb1",
+    "bountyhunter": {
+      "elo": 985,
+      "matches": 1
+    }
+  },
+  {
+    "id": "595591624549990400",
+    "username": "hitotsufel"
+  },
+  {
+    "id": "336740108839550976"
+  },
+  {
+    "id": "161591875751510016",
+    "username": "jefflep"
+  },
+  {
+    "id": "444306389905571841",
+    "username": "drelladan",
+    "bountyhunter": {
+      "elo": 725,
+      "matches": 11
+    },
+    "magic-mirror": {
+      "elo": 850,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 735,
+      "matches": 4
+    }
+  },
+  {
+    "id": "285574104407474180"
+  },
+  {
+    "id": "522138141855842315",
+    "username": "sapolefrog",
+    "bountyhunter": {
+      "elo": 820,
+      "matches": 1
+    }
+  },
+  {
+    "id": "1144084228368252958",
+    "username": "derekthetech_40274"
+  },
+  {
+    "id": "792270294018555925",
+    "username": "haunt_gossamer"
+  },
+  {
+    "id": "268924404178747404",
+    "username": "trailz2551",
+    "Custom": {
+      "elo": 950,
+      "matches": 1
+    }
+  },
+  {
+    "id": "124298268187426816",
+    "username": "derdrach",
+    "bountyhunter": {
+      "elo": 1450,
+      "matches": 48
+    },
+    "leg-day": {
+      "elo": 1555,
+      "matches": 3
+    },
+    "nimble": {
+      "elo": 1185,
+      "matches": 9
+    },
+    "lycanthrope": {
+      "elo": 1465,
+      "matches": 11
+    },
+    "warlock": {
+      "elo": 1510,
+      "matches": 5
+    },
+    "safe": {
+      "elo": 1255,
+      "matches": 5
+    },
+    "chaos-lite": {
+      "elo": 1300,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1700,
+      "matches": 65
+    },
+    "expedition": {
+      "elo": 1110,
+      "matches": 3
+    },
+    "bat-master": {
+      "elo": 1145,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 1480,
+      "matches": 9
+    },
+    "big-toss": {
+      "elo": 1175,
+      "matches": 2
+    },
+    "aperture": {
+      "elo": 1070,
+      "matches": 1
+    },
+    "beyond": {
+      "elo": 1015,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 1170,
+      "matches": 4
+    },
+    "guarded-og": {
+      "elo": 1360,
+      "matches": 2
+    },
+    "bingo": {
+      "elo": 1305,
+      "matches": 10
+    }
+  },
+  {
+    "id": "200429196336431107",
+    "twitch": "DiscoCockroach"
+  },
+  {
+    "id": "458685508755783694",
+    "username": "majorseamen",
+    "twitch": "majorsemen",
+    "bountyhunter": {
+      "elo": 425,
+      "matches": 36
+    },
+    "leg-day": {
+      "elo": 745,
+      "matches": 3
+    },
+    "nimble": {
+      "elo": 775,
+      "matches": 6
+    },
+    "lycanthrope": {
+      "elo": 585,
+      "matches": 6
+    },
+    "safe": {
+      "elo": 730,
+      "matches": 6
+    },
+    "big-toss": {
+      "elo": 1220,
+      "matches": 4
+    },
+    "chaos-lite": {
+      "elo": 800,
+      "matches": 1
+    },
+    "aperture": {
+      "elo": 835,
+      "matches": 3
+    },
+    "Custom": {
+      "elo": 535,
+      "matches": 26
+    },
+    "magic-mirror": {
+      "elo": 1115,
+      "matches": 3
+    },
+    "crash-course": {
+      "elo": 825,
+      "matches": 2
+    },
+    "beyond": {
+      "elo": 745,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 950,
+      "matches": 1
+    },
+    "bat-master": {
+      "elo": 840,
+      "matches": 1
+    }
+  },
+  {
+    "id": "154224473933873152",
+    "twitch": "SnakeManvsArbok",
+    "username": "snakemanvsarbok",
+    "Custom": {
+      "elo": 940,
+      "matches": 1
+    },
+    "guarded-og": {
+      "elo": 890,
+      "matches": 1
+    }
+  },
+  {
+    "id": "267516619117428736",
+    "username": "cryomonoxide",
+    "bountyhunter": {
+      "elo": 875,
+      "matches": 7
+    }
+  },
+  {
+    "id": "1009544070525362177",
+    "username": "creator_ypsilon"
+  },
+  {
+    "id": "134826386010537984",
+    "username": "_alexp_",
+    "bountyhunter": {
+      "elo": 735,
+      "matches": 43
+    },
+    "twitch": "alexpi_fgc",
+    "lycanthrope": {
+      "elo": 730,
+      "matches": 2
+    },
+    "warlock": {
+      "elo": 520,
+      "matches": 5
+    },
+    "safe": {
+      "elo": 850,
+      "matches": 2
+    },
+    "chaos-lite": {
+      "elo": 800,
+      "matches": 1
+    },
+    "aperture": {
+      "elo": 950,
+      "matches": 2
+    },
+    "guarded-og": {
+      "elo": 865,
+      "matches": 4
+    },
+    "nimble": {
+      "elo": 1305,
+      "matches": 2
+    },
+    "magic-mirror": {
+      "elo": 740,
+      "matches": 4
+    },
+    "Custom": {
+      "elo": 740,
+      "matches": 16
+    },
+    "bat-master": {
+      "elo": 940,
+      "matches": 1
+    },
+    "bingo": {
+      "elo": 895,
+      "matches": 7
+    },
+    "expedition": {
+      "elo": 945,
+      "matches": 1
+    }
+  },
+  {
+    "id": "447028019610124309"
+  },
+  {
+    "id": "365012650632937472",
+    "username": "mottzilla0",
+    "bountyhunter": {
+      "elo": 1180,
+      "matches": 33
+    },
+    "leg-day": {
+      "elo": 1570,
+      "matches": 7
+    },
+    "warlock": {
+      "elo": 1050,
+      "matches": 2
+    },
+    "Custom": {
+      "elo": 1195,
+      "matches": 56
+    },
+    "bat-master": {
+      "elo": 1175,
+      "matches": 3
+    },
+    "guarded-og": {
+      "elo": 1335,
+      "matches": 2
+    },
+    "big-toss": {
+      "elo": 770,
+      "matches": 2
+    },
+    "magic-mirror": {
+      "elo": 1275,
+      "matches": 10
+    },
+    "lycanthrope": {
+      "elo": 1050,
+      "matches": 8
+    },
+    "beyond": {
+      "elo": 650,
+      "matches": 2
+    },
+    "boss-rush": {
+      "elo": 950,
+      "matches": 1
+    },
+    "nimble": {
+      "elo": 1120,
+      "matches": 3
+    },
+    "safe": {
+      "elo": 1070,
+      "matches": 2
+    },
+    "aperture": {
+      "elo": 895,
+      "matches": 2
+    }
+  },
+  {
+    "id": "889541891056623736"
+  },
+  {
+    "id": "102963089233702912",
+    "username": "sevenfangs"
+  },
+  {
+    "id": "337284886039625728",
+    "username": "sugden_",
+    "bountyhunter": {
+      "elo": 1490,
+      "matches": 88
+    },
+    "twitch": "sugdenunderscore",
+    "Custom": {
+      "elo": 1365,
+      "matches": 24
+    },
+    "leg-day": {
+      "elo": 910,
+      "matches": 3
+    },
+    "nimble": {
+      "elo": 1395,
+      "matches": 3
+    },
+    "warlock": {
+      "elo": 895,
+      "matches": 2
+    },
+    "beyond": {
+      "elo": 1160,
+      "matches": 2
+    },
+    "lycanthrope": {
+      "elo": 705,
+      "matches": 5
+    },
+    "safe": {
+      "elo": 1345,
+      "matches": 6
+    },
+    "big-toss": {
+      "elo": 1285,
+      "matches": 3
+    },
+    "chaos-lite": {
+      "elo": 1055,
+      "matches": 2
+    },
+    "aperture": {
+      "elo": 1145,
+      "matches": 3
+    },
+    "expedition": {
+      "elo": 1100,
+      "matches": 1
+    },
+    "bat-master": {
+      "elo": 1095,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 530,
+      "matches": 7
+    },
+    "crash-course": {
+      "elo": 1195,
+      "matches": 1
+    }
+  },
+  {
+    "id": "277626992038510593",
+    "twitch": "elazul_prime",
+    "bountyhunter": {
+      "elo": 825,
+      "matches": 71
+    },
+    "username": "elazul",
+    "lycanthrope": {
+      "elo": 855,
+      "matches": 4
+    },
+    "warlock": {
+      "elo": 895,
+      "matches": 1
+    },
+    "big-toss": {
+      "elo": 865,
+      "matches": 3
+    },
+    "nimble": {
+      "elo": 940,
+      "matches": 1
+    },
+    "guarded-og": {
+      "elo": 800,
+      "matches": 1
+    },
+    "aperture": {
+      "elo": 915,
+      "matches": 2
+    },
+    "leg-day": {
+      "elo": 650,
+      "matches": 1
+    },
+    "safe": {
+      "elo": 840,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 665,
+      "matches": 8
+    },
+    "beyond": {
+      "elo": 765,
+      "matches": 2
+    },
+    "Custom": {
+      "elo": 870,
+      "matches": 3
+    },
+    "crash-course": {
+      "elo": 900,
+      "matches": 1
+    }
+  },
+  {
+    "id": "394974602285023235",
+    "twitch": "BizarroNovaDragon",
+    "bountyhunter": {
+      "elo": 845,
+      "matches": 31
+    },
+    "username": "regularstormy"
+  },
+  {
+    "id": "384451080668446720",
+    "twitch": "X_CrimsonBattousai_X",
+    "bountyhunter": {
+      "elo": 835,
+      "matches": 63
+    },
+    "username": "crimsonbattousai",
+    "magic-mirror": {
+      "elo": 790,
+      "matches": 20
+    },
+    "Custom": {
+      "elo": 1110,
+      "matches": 22
+    }
+  },
+  {
+    "id": "127868041227796480",
+    "bountyhunter": {
+      "elo": 565,
+      "matches": 9
+    },
+    "username": "sacredlucy",
+    "leg-day": {
+      "elo": 860,
+      "matches": 2
+    },
+    "crash-course": {
+      "elo": 900,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 690,
+      "matches": 10
+    },
+    "twitch": "sacredlucyy",
+    "bingo": {
+      "elo": 900,
+      "matches": 1
+    }
+  },
+  {
+    "id": "280397245206102028",
+    "twitch": "kurushii_drive"
+  },
+  {
+    "id": "277658076277112833",
+    "bountyhunter": {
+      "elo": 680,
+      "matches": 25
+    },
+    "username": "lunixspectralfin",
+    "safe": {
+      "elo": 850,
+      "matches": 1
+    },
+    "guarded-og": {
+      "elo": 800,
+      "matches": 1
+    },
+    "aperture": {
+      "elo": 905,
+      "matches": 1
+    },
+    "nimble": {
+      "elo": 850,
+      "matches": 1
+    }
+  },
+  {
+    "id": "320003425553350660",
+    "leg-day": {
+      "elo": 950,
+      "matches": 1
+    },
+    "username": "kantorx",
+    "bountyhunter": {
+      "elo": 755,
+      "matches": 7
+    },
+    "Custom": {
+      "elo": 810,
+      "matches": 1
+    }
+  },
+  {
+    "id": "497847415164895233",
+    "bountyhunter": {
+      "elo": 1550,
+      "matches": 13
+    },
+    "username": "classicadvent",
+    "leg-day": {
+      "elo": 855,
+      "matches": 3
+    },
+    "lycanthrope": {
+      "elo": 900,
+      "matches": 2
+    },
+    "nimble": {
+      "elo": 810,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 1225,
+      "matches": 6
+    },
+    "beyond": {
+      "elo": 950,
+      "matches": 1
+    },
+    "Custom": {
+      "elo": 1085,
+      "matches": 1
+    }
+  },
+  {
+    "id": "1145756159660277851"
+  },
+  {
+    "id": "262977697175699457",
+    "Custom": {
+      "elo": 895,
+      "matches": 5
+    },
+    "username": "xopazaru0343",
+    "bountyhunter": {
+      "elo": 575,
+      "matches": 23
+    },
+    "aperture": {
+      "elo": 740,
+      "matches": 2
+    },
+    "twitch": "xopa0343",
+    "boss-rush": {
+      "elo": 960,
+      "matches": 1
+    },
+    "bingo": {
+      "elo": 855,
+      "matches": 8
+    }
+  },
+  {
+    "id": "249321953150763009",
+    "twitch": "KlammL",
+    "bountyhunter": {
+      "elo": 665,
+      "matches": 3
+    },
+    "username": "klamm",
+    "Custom": {
+      "elo": 500,
+      "matches": 9
+    },
+    "big-toss": {
+      "elo": 790,
+      "matches": 1
+    },
+    "boss-rush": {
+      "elo": 955,
+      "matches": 1
+    },
+    "leg-day": {
+      "elo": 995,
+      "matches": 2
+    }
+  },
+  {
+    "id": "193080405493153794",
+    "twitch": "Project_OMEG4"
+  },
+  {
+    "id": "620932887386259467",
+    "bountyhunter": {
+      "elo": 845,
+      "matches": 5
+    },
+    "username": "cristoelmago",
+    "Custom": {
+      "elo": 720,
+      "matches": 7
+    }
+  },
+  {
+    "id": "913201531078209588",
+    "bountyhunter": {
+      "elo": 1000,
+      "matches": 2
+    },
+    "username": "gavoniusrex",
+    "aperture": {
+      "elo": 860,
+      "matches": 1
+    },
+    "lycanthrope": {
+      "elo": 860,
+      "matches": 1
+    }
+  },
+  {
+    "id": "267164187803910156",
+    "lycanthrope": {
+      "elo": 995,
+      "matches": 2
+    },
+    "username": "lexiticus",
+    "Custom": {
+      "elo": 650,
+      "matches": 18
+    }
+  },
+  {
+    "id": "955283241630306326",
+    "magic-mirror": {
+      "elo": 865,
+      "matches": 1
+    },
+    "username": "kissarmy78",
+    "lycanthrope": {
+      "elo": 810,
+      "matches": 1
+    }
+  },
+  {
+    "id": "489872078976057344",
+    "twitch": "ToiletPain_",
+    "Custom": {
+      "elo": 935,
+      "matches": 1
+    },
+    "username": "jjcdrummer",
+    "bountyhunter": {
+      "elo": 1315,
+      "matches": 1
+    },
+    "magic-mirror": {
+      "elo": 1050,
+      "matches": 1
+    }
+  },
+  {
+    "id": "176927707307704321",
+    "Custom": {
+      "elo": 795,
+      "matches": 26
+    },
+    "username": "bobsagget",
+    "bountyhunter": {
+      "elo": 855,
+      "matches": 2
+    },
+    "guarded-og": {
+      "elo": 635,
+      "matches": 2
+    },
+    "lycanthrope": {
+      "elo": 925,
+      "matches": 9
+    },
+    "leg-day": {
+      "elo": 1120,
+      "matches": 5
+    },
+    "magic-mirror": {
+      "elo": 965,
+      "matches": 2
+    },
+    "bat-master": {
+      "elo": 755,
+      "matches": 2
+    },
+    "nimble": {
+      "elo": 580,
+      "matches": 4
+    },
+    "warlock": {
+      "elo": 875,
+      "matches": 1
+    },
+    "safe": {
+      "elo": 905,
+      "matches": 1
+    }
+  },
+  {
+    "id": "906422280098308096",
+    "Custom": {
+      "elo": 720,
+      "matches": 4
+    },
+    "username": "number_86",
+    "nimble": {
+      "elo": 815,
+      "matches": 1
+    }
+  },
+  {
+    "id": "399791931015823363",
+    "Custom": {
+      "elo": 600,
+      "matches": 15
+    },
+    "username": "neil_bran",
+    "lycanthrope": {
+      "elo": 650,
+      "matches": 6
+    },
+    "nimble": {
+      "elo": 845,
+      "matches": 5
+    },
+    "bountyhunter": {
+      "elo": 930,
+      "matches": 1
+    },
+    "bat-master": {
+      "elo": 960,
+      "matches": 2
+    },
+    "leg-day": {
+      "elo": 700,
+      "matches": 2
+    },
+    "magic-mirror": {
+      "elo": 995,
+      "matches": 2
+    }
+  },
+  {
+    "id": "689560632990761034",
+    "casual": {
+      "elo": 950,
+      "matches": 1
+    },
+    "username": "bentramer0909",
+    "nimble": {
+      "elo": 795,
+      "matches": 2
+    },
+    "Custom": {
+      "elo": 865,
+      "matches": 2
+    },
+    "safe": {
+      "elo": 825,
+      "matches": 4
+    },
+    "warlock": {
+      "elo": 730,
+      "matches": 1
+    },
+    "bat-master": {
+      "elo": 760,
+      "matches": 1
+    }
+  },
+  {
+    "id": "1018635033365467207",
+    "Custom": {
+      "elo": 640,
+      "matches": 3
+    },
+    "username": "purlypurlington",
+    "nimble": {
+      "elo": 685,
+      "matches": 2
+    },
+    "lycanthrope": {
+      "elo": 865,
+      "matches": 1
+    },
+    "leg-day": {
+      "elo": 940,
+      "matches": 1
+    }
+  },
+  {
+    "id": "737785945234866176",
+    "twitch": "gallivanter_",
+    "Custom": {
+      "elo": 1515,
+      "matches": 19
+    },
+    "username": "gallivanter6174",
+    "lycanthrope": {
+      "elo": 1225,
+      "matches": 11
+    },
+    "warlock": {
+      "elo": 1370,
+      "matches": 6
+    },
+    "nimble": {
+      "elo": 1330,
+      "matches": 12
+    },
+    "magic-mirror": {
+      "elo": 785,
+      "matches": 2
+    },
+    "leg-day": {
+      "elo": 1040,
+      "matches": 1
+    },
+    "guarded-og": {
+      "elo": 1305,
+      "matches": 1
+    },
+    "safe": {
+      "elo": 860,
+      "matches": 9
+    },
+    "aperture": {
+      "elo": 1130,
+      "matches": 2
+    },
+    "expedition": {
+      "elo": 1145,
+      "matches": 1
+    }
+  },
+  {
+    "id": "218738662681083916",
+    "guarded-og": {
+      "elo": 1005,
+      "matches": 1
+    },
+    "username": ".yukamichi",
+    "Custom": {
+      "elo": 905,
+      "matches": 1
+    }
+  },
+  {
+    "id": "193438560542654464",
+    "warlock": {
+      "elo": 925,
+      "matches": 1
+    },
+    "username": "yeaydee",
+    "lycanthrope": {
+      "elo": 835,
+      "matches": 1
+    },
+    "leg-day": {
+      "elo": 935,
+      "matches": 1
+    },
+    "bat-master": {
+      "elo": 910,
+      "matches": 1
+    }
+  }
+]
