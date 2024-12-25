@@ -132,7 +132,7 @@ module.exports = {
     },
     getPlayerElo: function(id, category) {
         let playerRanked = getPlayerRankedData(id, category);
-        if (playerRanked !== null){
+        if (playerRanked !== null && playerRanked.elo !== 0 && playerRanked.matches > 0) {
             return playerRanked.elo;
         } else {
             changePlayerElo(id, category, true, 1000);
