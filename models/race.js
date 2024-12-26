@@ -205,7 +205,7 @@ module.exports = class Race {
         this.seedName = name;
     }
 
-    initiate(category, unranked, tournament, interaction, raceChannel, bingoLockout, bingoPassword) {
+    initiate(category, unranked, tournament, interaction, raceChannel, bingoLockout, bingoPassword, optionsMap) {
         this.defaults();
         this.status = 'RACE: WAITING FOR PLAYERS';
         this.category = category;
@@ -222,7 +222,7 @@ module.exports = class Race {
             this.seed = seedData;
             this.seedName = seedData.name;
             if (config.generatePPF) {
-                generatePPF(this.seed, this.seedName, raceChannel, category.toLowerCase(), tournament, interaction,this.randomusic,true, this.raceId);
+                generatePPF(this.seed, this.seedName, raceChannel, category.toLowerCase(), tournament, interaction,this.randomusic,true, this.raceId, optionsMap);
             }
         } else {
             var crypto = require("crypto");

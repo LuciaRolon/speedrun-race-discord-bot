@@ -3,6 +3,7 @@ const cp = require('child_process');
 const fs = require('fs');
 const axios = require('axios');
 const FormData = require('form-data');
+const {options} = require("axios");
 
 
 async function sendFile(filepath, raceId, fileName) {
@@ -75,7 +76,7 @@ function sendErrorReply(interaction) {
     });
 }
 
-module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace, raceId) => {
+module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace, raceId, optionsMap) => {
     console.log(seedName);
     let patchFileName = catagory + "-" + seedName + ".ppf";
     let randoPath = config.randoPath;
@@ -84,7 +85,6 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
 
     let logs = '';
     let newlogs = '';
-    // let mapColor = "-m " + mapColors[Math.floor(Math.random() * Math.floor(mapColors.length - 1))]
     let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName, "--race","-l"];
 
     if (!randoMusic && catagory !== "boss-rush" && catagory !== "bingo"){
@@ -96,8 +96,13 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
     console.log(randoPath + "randomize", args);
     if (tournament && catagory !== "boss-rush"){
         args.push("-t")
-    } else {
-        args.push(mapColor) // push a random map color to the seed.
+    }
+    if(optionsMap){
+        for(const key in optionsMap){
+            if(optionsMap[key]){
+                args.push(key)
+            }
+        }
     }
     console.log(randoPath + "randomize", args);
     let randomizer;
