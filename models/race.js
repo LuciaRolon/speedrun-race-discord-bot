@@ -221,8 +221,10 @@ module.exports = class Race {
             let seedData = seed(category.toLowerCase());
             this.seed = seedData;
             this.seedName = seedData.name;
+            const ppfCategory =  category.toLowerCase().replace("-qualifiers", "");
+
             if (config.generatePPF) {
-                generatePPF(this.seed, this.seedName, raceChannel, category.toLowerCase(), tournament, interaction,this.randomusic,true, this.raceId, optionsMap);
+                generatePPF(this.seed, this.seedName, raceChannel, ppfCategory ,tournament, interaction,this.randomusic,true, this.raceId, optionsMap);
             }
         } else {
             var crypto = require("crypto");
