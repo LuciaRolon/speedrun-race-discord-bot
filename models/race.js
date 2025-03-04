@@ -450,7 +450,7 @@ module.exports = class Race {
             this.players.forEach(player => {
                 if(player.replaySubmitted){
                     let replayUrl = this.referenceReplays[player.id]
-                    output += `Player: ${player.username} - [Replay Link](${replayUrl}) \n`;
+                    output += `Player: ${player.username.replace(/_+/g, "_")} - [Replay Link](${replayUrl}) \n`;
                 }
             })
         }
