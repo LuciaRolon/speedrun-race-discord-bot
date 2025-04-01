@@ -78,8 +78,8 @@ function sendErrorReply(interaction) {
 
 module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace, raceId, optionsMap) => {
     let month = new Date().getMonth() + 1;
-    let day = new Date().getDate;
-    isAprilFools = month === 4 && day === 1;
+    let day = new Date().getDate();
+    let isAprilFools = month === 4 && day === 1;
 
     console.log(month + '/' + day + ' - ' + seedName);
     
