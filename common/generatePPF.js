@@ -78,14 +78,13 @@ function sendErrorReply(interaction) {
 
 module.exports = async (seed, seedName, channel, catagory, tournament,interaction, randoMusic, isRace, raceId, optionsMap) => {
     let month = new Date().getMonth() + 1;
-    let day = new Date().getDay() + 1;
+    let day = new Date().getDate;
+    isAprilFools = month === 4 && day === 1;
 
-    console.log(seedName);
+    console.log(month + '/' + day + ' - ' + seedName);
     
-    if (month === 4){
-        if (day === 1){
-            catagory = 'april-fools'
-        }
+    if (isAprilFools){
+        catagory = 'april-fools'
     }
 
     let patchFileName = catagory + "-" + seedName + ".ppf";
