@@ -41,7 +41,7 @@ module.exports = {
                     },
                     {
                         name: 'Bounty Hunter',
-                        value: 'bountyhunter',
+                        value: 'bounty-hunter',
                     },
                     {
                         name: 'Aperture',
@@ -89,7 +89,7 @@ module.exports = {
                     },
                     {
                         name: 'Bounty Hunter - Target Confirmed',
-                        value: 'bountyhuntertc',
+                        value: 'target-confirmed',
                     },
                     {
                         name: 'Custom',

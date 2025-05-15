@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const FormData = require('form-data');
 const config = require('../config.json');
-const maxFileSize = 35000;
+const maxFileSize = 50000;
 const replayFileExtension = ".sotnr";
 const axios = require('axios');
 

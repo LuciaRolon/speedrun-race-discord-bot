@@ -129,40 +129,40 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
         let output = `Successfully generated seed ${seedName} of preset ${catagory}!\n`;
         logs = logs.replace(/(?:\r\n|\r|\n)/g, ',').replace(/\s\s+/g, ' ');
         let items = logs.split('Starting equipment:, ')[1];
-        if(catagory === "boss-rush" || catagory === "bountyhunter"){
-            items = items?.split('Relic locations:, ') ?? "";
-            if(items?.length>0){items=items[0]}
-        }
+        // if(catagory === "boss-rush" || catagory === "bountyhunter"){
+        //     items = items?.split('Relic locations:, ') ?? "";
+        //     if(items?.length>0){items=items[0]}
+        // }
         output+= 'https://ppf.sotn.io/'
         output += '\n Starting equipment: ||' + items + '||';
-        if(catagory === "bountyhunter" || catagory === "chaos" || catagory === "chaos-lite" || catagory === "bountyhuntertc" || catagory === "hitman"){
-            let ars = "-input";
-            if(catagory === "bountyhuntertc"){
-                ars = "-tconf";
-            }else if(catagory === "hitman"){
-                ars = "-hitmn";
-            }
-            let ppfApplier = cp.exec("D:/GithubDesktop/Repositories/speedrun-race-discord-bot/scripts/genBH.sh " + config.sotnVanillaBinPath + " " + config.ppfApplierPath + " " +config.patchFolder + patchFileName + " " + config.bhGeneratorToolPath + " " + ars);
-            ppfApplier.stderr.on('data', (outdata) => {
-                newlogs += outdata;
-            });
-            ppfApplier.on('exit', async () => {
-                console.log(newlogs);
-                try {
-                    sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
-                    sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
-                } catch{
-                    await sendErrorReply(interaction);
-                }
-            });
+        // if(catagory === "bountyhunter" || catagory === "chaos" || catagory === "chaos-lite" || catagory === "bountyhuntertc" || catagory === "hitman"){
+        //     let ars = "-input";
+        //     if(catagory === "bountyhuntertc"){
+        //         ars = "-tconf";
+        //     }else if(catagory === "hitman"){
+        //         ars = "-hitmn";
+        //     }
+        //     let ppfApplier = cp.exec("D:/GithubDesktop/Repositories/speedrun-race-discord-bot/scripts/genBH.sh " + config.sotnVanillaBinPath + " " + config.ppfApplierPath + " " +config.patchFolder + patchFileName + " " + config.bhGeneratorToolPath + " " + ars);
+        //     ppfApplier.stderr.on('data', (outdata) => {
+        //         newlogs += outdata;
+        //     });
+        //     ppfApplier.on('exit', async () => {
+        //         console.log(newlogs);
+        //         try {
+        //             sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
+        //             sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
+        //         } catch{
+        //             await sendErrorReply(interaction);
+        //         }
+        //     });
+        // }
+        // else {
+        try {
+            sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
+            sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
+        } catch{
+            await sendErrorReply(interaction);
         }
-        else {
-            try {
-                sendReply(config.patchFolder + patchFileName,patchFileName,output,channel.fetch(config.raceChannelId),interaction, isRace)
-                sendFile(config.patchFolder + patchFileName, raceId, patchFileName)
-            } catch{
-                await sendErrorReply(interaction);
-            }
-        }
+        // }
     });
 };
