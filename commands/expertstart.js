@@ -24,8 +24,8 @@ module.exports = {
                 .setDescription('Determines whether resulting seed will have randomized OST.')
                 .setRequired(false))
         .addBooleanOption(option =>
-            option.setName('enemy-stat-rando')
-                .setDescription('Adds Enemy Stat Randomizer to the seed')
+            option.setName('color-rando')
+                .setDescription('Adds Color Randomizer to the seed')
                 .setRequired(false))
         .addBooleanOption(option =>
             option.setName('magic-max')
@@ -56,12 +56,28 @@ module.exports = {
                 .setDescription('Adds Surprise Mode to the seed')
                 .setRequired(false))
         .addBooleanOption(option =>
+            option.setName('enemy-stat-rando')
+                .setDescription('Adds Enemy Stat Randomizer to the seed')
+                .setRequired(false))
+        .addBooleanOption(option =>
             option.setName('shop-price-rando')
                 .setDescription('Adds Shop Price Randomizer to the seed')
                 .setRequired(false))
         .addBooleanOption(option =>
-            option.setName('color-rando')
-                .setDescription('Adds Color Randomizer to the seed')
+            option.setName('guaranteed-drops')
+                .setDescription('Makes drops guaranteed fron enemies. Ring of Arcana changes which item is dropped.')
+                .setRequired(false))
+        .addBooleanOption(option =>
+            option.setName('reverse-lbc')
+                .setDescription('Reverse Library Cards. Hold down while using Library Card to go to Forbidden Library.')
+                .setRequired(false))
+        .addBooleanOption(option =>
+            option.setName('godspeed-shoes')
+                .setDescription('Double-tap forward to run.')
+                .setRequired(false))
+        .addBooleanOption(option =>
+            option.setName('library-shortcut')
+                .setDescription('Allows for quick library escape-entry.')
                 .setRequired(false))
         .addStringOption(option =>
             option.setName('password')
@@ -84,6 +100,10 @@ module.exports = {
             "-U": interaction.options.getBoolean('unlocked-mode'),
             "-S": interaction.options.getBoolean('surprise-mode'),
             "--sh": interaction.options.getBoolean('shop-price-rando'),
+            "--gd": interaction.options.getBoolean('guaranteed-drops'),
+            "--rl": interaction.options.getBoolean('reverse-lbc'),
+            "--gss": interaction.options.getBoolean('godspeed-shoes'),
+            "--ls": interaction.options.getBoolean('library-shortcut'),
         };
 
         if ((race.started || !race.finished) && race.tournament && !interaction.member.roles.cache.find(x => x.id === config.refereeRoleId)) {

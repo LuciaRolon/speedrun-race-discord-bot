@@ -9,7 +9,7 @@ module.exports = {
 
         output += 'Inquiry: Racing Standards!';
         output += '\n ';
-        output += '\nRacing standards sometimes change and so this command will be updated as things evolve. Currently there are two sets of raciong standards: The standards used in asynchronous races and tournaments, and then everything else. First we will cover the "official" stuff so that this is a lot easier.';
+        output += '\nRacing standards sometimes change and so this command will be updated as things evolve. Currently there are two sets of racing standards: The standards used in asynchronous races and tournaments, and then everything else. First we will cover the "official" stuff so that this is a lot easier.';
         output += '\n ';
         output += '\n## Official Standards';
         output += '\n ';
