@@ -11,7 +11,7 @@ module.exports = {
         output += '\n ';
         output += '\nWe always recommend Any% for speedruns because it\'s super fast (15-25 minutes), resets don\'t feel as bad, and the glitches are fairly easy to get into.';
         output += '\n- Let\'s start with [this movement and mechanics guide](<https://youtu.be/oF8S82YHEKc>) by Dr4gonBlitz. ';
-        output += '\n- Next is the [beginners guide](<https://youtu.be/eVtMl1efvpk>), also by Dr4gonBlitz and the [beginners playlist for more detailed information by TurboDog](<https://www.youtube.com/playlist?list=PLatVBprEnzK_OwWhDz1ViBFiQrFvCP4Lu>).';
+        output += '\n- Next is the [beginners guide](<https://youtu.be/eVtMl1efvpk>), also by Dr4gonBlitz and the [beginner-to-intermediate playlist](<https://www.youtube.com/playlist?list=PLatVBprEnzK_OwWhDz1ViBFiQrFvCP4Lu>) for more detailed information by TurboDog.';
         output += '\n- Now for a [guide on the boss you need to beat: Dracula](<https://youtu.be/2QuV80PYycM>) by Dr4gonBlitz.';
         output += '\n- TalicZealot has a [video on how to perform skips in Any%](<https://youtu.be/qBMGdgzNPUw>). ';
         output += '\n- Another good video for later: [How To Get World Record](<https://youtu.be/8QTjKT6W4q0>) by Dr4gonBlitz.';
