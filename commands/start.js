@@ -117,7 +117,11 @@ module.exports = {
                 .setDescription('Password for the Bingo Room. If not given, a random password will be generated and shared.')
                 .setRequired(false)),
     async execute(interaction, client, race) {
-        await interaction.deferReply({ ephemeral: true });
+        if(interaction.options.getString('category')=='Custom'){
+            await interaction.reply({ content: 'Custom Race Started!', ephemeral: true });
+        } else {
+            await interaction.deferReply({ ephemeral: true });
+        }
         if ((race.started || !race.finished) && race.tournament && !interaction.member.roles.cache.find(x => x.id === config.refereeRoleId)) {
             await interaction.reply({ content: 'Only referees can close tournament races!', ephemeral: true });
             return;

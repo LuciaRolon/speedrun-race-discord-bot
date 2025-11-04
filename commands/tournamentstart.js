@@ -16,62 +16,44 @@ module.exports = {
                         value: 'rampage-te',
                     },
                     {
-                        name: 'Chimera',
-                        value: 'chimera',
+                        name: 'Chimera 2025 Tournament Edition',
+                        value: 'chimera-te',
                     },
                     {
-                        name: 'Recycler',
-                        value: 'recycler',
+                        name: 'Recycler 2025 Tournament Edition',
+                        value: 'recycler-te',
                     },
                     {
-                        name: 'Nimble Lite',
-                        value: 'nimble-lite',
+                        name: 'Nimble Lite 2025 Tournament Edition',
+                        value: 'nimble-lite-te',
                     },
                     {
-                        name: 'Cornivus',
-                        value: 'cornivus',
+                        name: 'Cornivus 2025 Tournament Edition',
+                        value: 'cornivus-te',
                     }
                 )),
     async execute(interaction, client, race) {
         let optionsMap
         
-        if (["rampage-te"].includes(interaction.options.getString('category'))) {
-            optionsMap = {
-                "-l": true,         // Color Rando
-                "-E": false,        // Enemy Stat Rando
-                "-x": true,         // Magic Vessels
-                "-z": true,         // Anti-Freeze
-                "-y": true,         // That's My Purse!
-                "-b": false,        // Infinite Wing Smash
-                "-9": true,         // Fast Warps
-                "-U": false,        // Unlocked Mode
-                "-S": false,        // Surprise Mode
-                "--ori2": true,     // Second Castle Random Start
-                "--sh": false,      // Shop Price Rando
-                "--gd": false,      // Guaranteed Drops
-                "--rl": false,      // Reverse Library Cards
-                "--gss": false,     // Godspeed Shoes
-                "--ls": true,       // Library Shortcut
-            };
-        } else {
-            optionsMap = {
-                "-l": true,         // Color Rando
-                "-E": false,        // Enemy Stat Rando
-                "-x": true,         // Magic Vessels
-                "-z": true,         // Anti-Freeze
-                "-y": true,         // That's My Purse!
-                "-b": false,        // Infinite Wing Smash
-                "-9": true,         // Fast Warps
-                "-U": false,        // Unlocked Mode
-                "-S": false,        // Surprise Mode
-                "--ori2": true,     // Second Castle Random Start
-                "--sh": false,      // Shop Price Rando
-                "--gd": true,       // Guaranteed Drops
-                "--rl": false,      // Reverse Library Cards
-                "--gss": false,     // Godspeed Shoes
-                "--ls": true,       // Library Shortcut
-            };
-        }
+        optionsMap = {
+            "-l": true,         // Color Rando
+            "-E": false,        // Enemy Stat Rando
+            "-x": true,         // Magic Vessels
+            "-z": true,         // Anti-Freeze
+            "-R": true,         // No Prologue Mode
+            "-y": true,         // That's My Purse!
+            "-b": false,        // Infinite Wing Smash
+            "-9": true,         // Fast Warps
+            "-U": false,        // Unlocked Mode
+            "-S": false,        // Surprise Mode
+            "--ori2": true,     // Second Castle Random Start
+            "--sh": false,      // Shop Price Rando
+            "--gd": true,       // Guaranteed Drops
+            "--rl": false,      // Reverse Library Cards
+            "--gss": false,     // Godspeed Shoes
+            "--ls": false,      // Library Shortcut
+        };
+
         await interaction.deferReply({ ephemeral: true });
         const tournament = true;
         const unranked = false;
