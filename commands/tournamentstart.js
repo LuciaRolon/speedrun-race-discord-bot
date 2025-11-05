@@ -13,7 +13,7 @@ module.exports = {
                 .addChoices(
                     {
                         name: 'Rampage 2025 Tournament Edition',
-                        value: 'rampage-te',
+                        value: 'rampage-25te',
                     },
                     {
                         name: 'Chimera 2025 Tournament Edition',
