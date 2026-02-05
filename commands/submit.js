@@ -15,96 +15,88 @@ module.exports = {
                 .setRequired(true)
                 .addChoices(
                     {
-                        name: 'guarded-og',
-                        value: 'guarded-og',
-                    },
-                    {
-                        name: 'safe',
+                        name: 'Safe',
                         value: 'safe',
                     },
                     {
-                        name: 'casual',
+                        name: 'Casual',
                         value: 'casual',
                     },
                     {
-                        name: 'nimble',
-                        value: 'nimble',
-                    },
-                    {
-                        name: 'lycanthrope',
+                        name: 'Lycanthrope',
                         value: 'lycanthrope',
                     },
                     {
-                        name: 'expedition',
-                        value: 'expedition',
+                        name: 'Nimble',
+                        value: 'nimble',
                     },
                     {
-                        name: 'warlock',
+                        name: 'Warlock',
                         value: 'warlock',
                     },
                     {
-                        name: 'adventure',
-                        value: 'adventure',
+                        name: 'Beyond',
+                        value: 'beyond',
                     },
                     {
-                        name: 'og',
-                        value: 'og',
+                        name: 'Mobility',
+                        value: 'mobility',
                     },
                     {
-                        name: 'speedrun',
-                        value: 'speedrun',
+                        name: 'Target Confirmed',
+                        value: 'target-confirmed',
                     },
                     {
-                        name: 'bat-master',
-                        value: 'bat-master',
+                        name: 'Nimble Lite',
+                        value: 'nimble-lite',
                     },
                     {
-                        name: 'boss-rush',
-                        value: 'boss-rush',
+                        name: 'Recycler',
+                        value: 'recycler',
                     },
                     {
-                        name: 'bounty-hunter',
-                        value: 'bountyhunter',
+                        name: 'Safe - Season 2',
+                        value: 'stwosafe',
                     },
                     {
-                        name: 'summoner',
-                        value: 'summoner',
-                    },
-                    {
-                        name: 'scavenger',
-                        value: 'scavenger',
-                    },
-                    {
-                        name: 'aperture',
-                        value: 'aperture',
-                    },
-                    {
-                        name: 'breach',
-                        value: 'breach',
-                    },
-                    {
-                        name: 'forge',
-                        value: 'forge',
-                    },
-                    {
-                        name: 'big-toss',
-                        value: 'big-toss',
-                    },
-                    {
-                        name: 'grand-tour',
-                        value: 'grand-tour',
-                    },
-                    {
-                        name: 'crash-course',
-                        value: 'crash-course',
-                    },
-                    {
-                        name: 'leg-day',
+                        name: 'Leg Day',
                         value: 'leg-day',
                     },
                     {
-                        name: 'beyond',
+                        name: 'Beyond',
                         value: 'beyond',
+                    },
+                    {
+                        name: 'Big Toss',
+                        value: 'big-toss',
+                    },
+                    {
+                        name: 'Rampage',
+                        value: 'rampage',
+                    },
+                    {
+                        name: 'Rampage Tournament Edition',
+                        value: 'rampage-25te',
+                    },
+                    {
+                        name: 'Max Rando',
+                        value: 'max-rando',
+                    },
+                    {
+                        name: 'Expedition',
+                        value: 'expedition',
+                    },
+                    {
+                        name: 'Gear Rush',
+                        value: 'gear-rush',
+                    },
+                    {
+                        name: 'Boss Rush',
+                        value: 'boss-rush',
+                    },
+                    {
+                        name: 'Custom',
+                        value: 'Custom',
                     },
                 ))
         .addUserOption(option =>

@@ -94,7 +94,7 @@ module.exports = async (seed, seedName, channel, catagory, tournament,interactio
 
     let logs = '';
     let newlogs = '';
-    let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName, "--race","-l"];
+    let args = ["-o", config.patchFolder + patchFileName, "-p", catagory, "-s", seedName,"-l"]; // removed , "--race" because the race tag forces url gen and url gen is dead to me FUCK URL GEN
 
     if (!randoMusic && catagory !== "boss-rush" && catagory !== "bingo"){
         args.push("--opt","~m")

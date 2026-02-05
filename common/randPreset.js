@@ -6,8 +6,8 @@ module.exports = (wheelPreset) => {
         // "og",
         // "guarded-og",
         // "sequence-breaker",
-        // "lycanthrope",
-        // "warlock",
+        "lycanthrope",
+        "warlock",
         // "nimble",
         // "expedition",
         // "bat-master",
@@ -49,18 +49,18 @@ module.exports = (wheelPreset) => {
         // "dog-life",
         // "battle-mage",
         // "timeline",
-        "chimera",
+        // "chimera",
         // "vanilla",
         // "glitch-legacy",
         // "oracle",
         // "seeker",
         // "all-bosses",
         "nimble-lite",
-        "rampage",
-        "cornivus",
+        // "rampage",
+        // "cornivus",
         // "max-rando",
         // "mirror-breaker",
-        "recycler"
+        // "recycler"
     ];
 
     wheelPreset = maybePresets[Math.floor(Math.random() * Math.floor(maybePresets.length - 1))];

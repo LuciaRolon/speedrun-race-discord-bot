@@ -16,8 +16,8 @@
     "apiPort": "8080",
     "sotnVanillaBinPath": "../BountyHunterTool/'Castlevania - Symphony of the Night (USA) (Track 1).bin'",
     "randoPath": "C:/Users/ndshe/Documents/GitHub/sotnrando/",
-    "patchFolder": "D:/SOTN Bot/patches/",
-    "replaysFolder": "D:/SOTN Bot/replays/",
+    "patchFolder": "D:/SOTNBot/patches/",
+    "replaysFolder": "D:/SOTNBot/replays/",
     "ppfApplierPath": "../'ApplyPPF'/'Apply PPF'/apply_ppf.exe",
     "bhGeneratorToolPath": "../BountyHunterTool/BountyHunter.exe",
     "countdownFiles": [

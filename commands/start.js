@@ -32,64 +32,64 @@ module.exports = {
                         value: 'warlock',
                     },
                     {
-                        name: 'Crash Course',
-                        value: 'crash-course',
+                        name: 'Beyond',
+                        value: 'beyond',
                     },
                     {
-                        name: 'Warlock',
-                        value: 'warlock',
+                        name: 'Mobility',
+                        value: 'mobility',
                     },
                     {
-                        name: 'Bounty Hunter',
-                        value: 'bounty-hunter',
+                        name: 'Target Confirmed',
+                        value: 'target-confirmed',
                     },
                     {
-                        name: 'Aperture',
-                        value: 'aperture',
+                        name: 'Nimble Lite',
+                        value: 'nimble-lite',
                     },
                     {
-                        name: 'Magic Mirror',
-                        value: 'magic-mirror',
+                        name: 'Recycler',
+                        value: 'recycler',
                     },
                     {
                         name: 'Safe - Season 2',
                         value: 'stwosafe',
                     },
                     {
-                        name: 'Bingo',
-                        value: 'bingo',
-                    },
-                    {
                         name: 'Leg Day',
                         value: 'leg-day',
                     },
                     {
-                        name: 'First Castle',
-                        value: 'first-castle',
+                        name: 'Beyond',
+                        value: 'beyond',
                     },
                     {
                         name: 'Big Toss',
                         value: 'big-toss',
                     },
                     {
-                        name: 'Lucky Sevens',
-                        value: 'luckysevens',
+                        name: 'Rampage',
+                        value: 'rampage',
                     },
                     {
-                        name: 'Grand Tour',
-                        value: 'grand-tour',
+                        name: 'Rampage Tournament Edition',
+                        value: 'rampage-25te',
                     },
                     {
-                        name: 'Skinwalker',
-                        value: 'skinwalker',
+                        name: 'Max Rando',
+                        value: 'max-rando',
                     },
                     {
-                        name: 'Bounty Hunter - Hitman',
-                        value: 'hitman',
+                        name: 'Expedition',
+                        value: 'expedition',
                     },
                     {
-                        name: 'Bounty Hunter - Target Confirmed',
-                        value: 'target-confirmed',
+                        name: 'Gear Rush',
+                        value: 'gear-rush',
+                    },
+                    {
+                        name: 'Boss Rush',
+                        value: 'boss-rush',
                     },
                     {
                         name: 'Custom',
