@@ -12,47 +12,49 @@ module.exports = {
                 .setRequired(true)
                 .addChoices(
                     {
-                        name: 'Rampage 2025 Tournament Edition',
-                        value: 'rampage-25te',
+                        name: 'Lycanthrope - Transform Tournament 2026',
+                        value: 'lycanthrope-transform-2026',
                     },
                     {
-                        name: 'Chimera 2025 Tournament Edition',
-                        value: 'chimera-te',
+                        name: 'Nimble Lite - Transform Tournament 2026',
+                        value: 'nimble-lite-transform-2026',
                     },
                     {
-                        name: 'Recycler 2025 Tournament Edition',
-                        value: 'recycler-te',
+                        name: 'Warlock - Transform Tournament 2026',
+                        value: 'warlock-transform-2026',
                     },
                     {
-                        name: 'Nimble Lite 2025 Tournament Edition',
-                        value: 'nimble-lite-te',
-                    },
-                    {
-                        name: 'Cornivus 2025 Tournament Edition',
-                        value: 'cornivus-te',
+                        name: 'Random Tournament Preset',
+                        value: 'random',
                     }
                 )),
     async execute(interaction, client, race) {
         let optionsMap
         
         optionsMap = {
-            "-l": true,         // Color Rando
+            "-l": false,         // Color Rando
             "-E": false,        // Enemy Stat Rando
             "-x": true,         // Magic Vessels
-            "-z": true,         // Anti-Freeze
-            "-R": true,         // No Prologue Mode
-            "-y": true,         // That's My Purse!
+            "-z": false,         // Anti-Freeze
+            "-R": false,         // No Prologue Mode
+            "-y": false,         // That's My Purse!
             "-b": false,        // Infinite Wing Smash
             "-9": true,         // Fast Warps
             "-U": false,        // Unlocked Mode
             "-S": false,        // Surprise Mode
-            "--ori2": true,     // Second Castle Random Start
-            "--sh": false,      // Shop Price Rando
-            "--gd": true,       // Guaranteed Drops
-            "--rl": false,      // Reverse Library Cards
+            "--ori": true,      // First Castle Random Start
+            "--ori2": false,     // Second Castle Random Start
+            "--sh": true,      // Shop Price Rando
+            "--gd": false,       // Guaranteed Drops
+            "--rl": true,      // Reverse Library Cards
             "--gss": false,     // Godspeed Shoes
             "--ls": false,      // Library Shortcut
         };
+        let category = interaction.options.getString('category')
+        if(category === "random"){
+            const options = ["lycanthrope-transform-2026", "warlock-transform-2026", "nimble-lite-transform-2026"];
+            category = options[Math.floor(Math.random() * options.length)];
+        }
 
         await interaction.deferReply({ ephemeral: true });
         const tournament = true;
@@ -64,7 +66,7 @@ module.exports = {
         }
         let raceChannel = client.guilds.cache.first(1)[0].channels;
 
-        race.initiate(interaction.options.getString('category'), unranked, tournament, interaction, raceChannel, interaction.options.getBoolean('lockout'), interaction.options.getString('password'), optionsMap);
+        race.initiate(category, unranked, tournament, interaction, raceChannel, interaction.options.getBoolean('lockout'), interaction.options.getString('password'), optionsMap);
 
     },
 };
