@@ -65,8 +65,9 @@ module.exports = {
             return;
         }
         let raceChannel = client.guilds.cache.first(1)[0].channels;
+        let tournamentLeaderboard = "transform-spring-2026";
 
-        race.initiate(category, unranked, tournament, interaction, raceChannel, interaction.options.getBoolean('lockout'), interaction.options.getString('password'), optionsMap);
+        race.initiate(category, unranked, tournament, interaction, raceChannel, interaction.options.getBoolean('lockout'), interaction.options.getString('password'), optionsMap, tournamentLeaderboard);
 
     },
 };
