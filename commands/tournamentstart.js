@@ -13,15 +13,15 @@ module.exports = {
                 .addChoices(
                     {
                         name: 'Lycanthrope - Transform Tournament 2026',
-                        value: 'lycanthrope-transform-2026',
+                        value: 'lycanthrope-spr26te',
                     },
                     {
                         name: 'Nimble Lite - Transform Tournament 2026',
-                        value: 'nimble-lite-transform-2026',
+                        value: 'nimble-lite-spr26te',
                     },
                     {
                         name: 'Warlock - Transform Tournament 2026',
-                        value: 'warlock-transform-2026',
+                        value: 'warlock-spr26te',
                     },
                     {
                         name: 'Random Tournament Preset',
@@ -52,7 +52,7 @@ module.exports = {
         };
         let category = interaction.options.getString('category')
         if(category === "random"){
-            const options = ["lycanthrope-transform-2026", "warlock-transform-2026", "nimble-lite-transform-2026"];
+            const options = ["lycanthrope-spr26te", "warlock-spr26te", "nimble-lite-spr26te"];
             category = options[Math.floor(Math.random() * options.length)];
         }
 
